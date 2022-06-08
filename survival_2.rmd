@@ -253,7 +253,7 @@ Our results indicates a significant relationship - Non Proportional Hazard assum
 
 In the figure above,Graphical diagnostic plot produces graphs of the scaled Schoenfeld residuals against the transformed time for treatment.
 The solid line is a smoothing spline fit to the plot, with the dashed lines representing a +/- 2-standard-error band around the fit.\newline
-***Note that, systematic departures from a horizontal line are indicative of non-proportional hazards, whilst random departures support proportional *** 
+***Note that, systematic departures from a horizontal line are indicative of non-proportional hazards, whilst random departures support proportional hazards*** 
 
 
 
