@@ -1,0 +1,344 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+    fig_caption: true
+    latex_engine: pdflatex
+    number_sections: true
+    toc: true
+    toc_depth: 4
+title: "SURVIVAL ANALYSIS - TCGA PRAD CANCER"
+author: 
+- Kelvin Ofori-Minta
+- University of Texas at El Paso (UTEP) 
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontsize: 11pt
+spacing: single
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{amssymb, bm}
+- \usepackage{amsfonts}
+- \usepackage{amsthm}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhf{}
+- \rhead{Collaborative Research}
+- \lhead{TCGA - Clinical Data}
+- \cfoot{\thepage}
+- \usepackage{algorithm}
+- \usepackage[noend]{algpseudocode}
+
+---
+\newpage
+\section{Loading and Cleaning Data}
+```{r, warning=FALSE, message=FALSE}
+s <- read.csv("tcga_prad.csv", header = T, stringsAsFactors = F, na.strings = "NA")
+#selecting columns of interest
+data<-s[, c(4,7,8,12,13,19,20,21,23,27:32,44:47,50,53:55,58,62,40:42)]
+# write.csv(data,"C://Users//Kelvin//Desktop//Spring 2022//research with Dr. Leung//survival//selected_columns.csv")
+```
+
+\subsection{Inspecting dataframe for missing values}
+```{r, warning=FALSE, message=FALSE}
+require(inspectdf)
+show_plot(inspect_na(data))
+missing = inspect_na(data)
+missing[ , 3] = round(missing[ ,3], 2)
+names(missing) = c("variable", "count", "proportion")
+require(kableExtra)
+# missing<-as.matrix.data.frame(missing)
+kable(missing)
+# as.data.frame.matrix(missing)
+# kable(as.da(missing))
+```
+
+\newpage
+\subsubsection{Variables with more than 1.5 percent missing rate proportion}
+```{r, warning=FALSE, message=FALSE}
+missing[which(missing$proportion >10) , ] #missing values > 1.5%
+```
+
+
+\newpage
+\subsubsection{Remove all missing values with more than 10 percent missing rate}
+```{r, warning=FALSE, message=FALSE}
+#removing variables of high missing rate, redundant, unnecessary
+ind <- match(c("Ethnicity.Category", "Race.Category","Buffa.Hypoxia.Score",
+               "Ragnum.Hypoxia.Score","Winter.Hypoxia.Score",
+               "Person.Neoplasm.Cancer.Status",
+               "New.Neoplasm.Event.Post.Initial.Therapy.Indicator",
+               "Birth.from.Initial.Pathologic.Diagnosis.Date",
+               "Last.Communication.Contact.from.Initial.Pathologic.Diagnosis.Date",
+               "Form.completion.date","Informed.consent.verified","Sex",#unnecessary
+               "Tissue.Prospective.Collection.Indicator",
+               "Tissue.Retrospective.Collection.Indicator")
+               ,names(data))
+
+ # "Radiation.Therapy","Aneuploidy.Score",
+#ind  # indices of the variables
+ndata <- data[ ,-ind]
+show_plot(inspect_na(ndata))
+```
+
+
+
+\newpage
+\subsubsection{Casewise deletion of remaining missing values}
+```{r, warning=FALSE, message=FALSE}
+# head(new_data[!complete.cases(new_data),])
+# dim(new_data[!complete.cases(new_data),])
+new_data <- ndata[complete.cases(ndata),]
+dim(new_data)
+show_plot(inspect_na(new_data))
+```
+
+\newpage
+\subsubsection{Re-coding variables with categorical measure}
+```{r, warning=FALSE, message=FALSE}
+new_data$Neoadjuvant.Therapy.Type.Administered.Prior.To.Resection.Text<-as.integer(ifelse(
+  new_data$Neoadjuvant.Therapy.Type.Administered.Prior.To.Resection.Text=="No",0,1))
+
+new_data$In.PanCan.Pathway.Analysis<-as.integer(ifelse(new_data$In.PanCan.Pathway.Analysis=="No",
+                                                       0, 1))
+
+
+
+new_data$Prior.Diagnosis<-as.integer(ifelse(new_data$Prior.Diagnosis=="No", 0,
+                                   ifelse(new_data$Prior.Diagnosis=="Yes",1,2)))
+
+new_data$Radiation.Therapy<-as.integer(ifelse(new_data$Radiation.Therapy=="No",0,1))
+
+new_data$tissue_source.site<-as.integer(ifelse(new_data$tissue_source.site=="university",0,
+                             ifelse(new_data$tissue_source.site=="Biotech & Pharma",1,
+                             ifelse(new_data$tissue_source.site=="Hospital",2,3))))
+
+new_data$Progression.Free.Status<-as.integer(ifelse(new_data$Progression.Free.Status==
+                                                      "0:CENSORED",0,1))
+#str(new_data)
+```
+
+
+\newpage
+\section{Exploring cleaned data for interesting patterns and relationships}
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(tidyverse))
+
+new_data %>% 
+  pivot_longer(cols=c(Fraction.Genome.Altered,MSI.MANTIS.Score,Diagnosis.Age,
+                      Progress.Free.Survival..Months.,tissue_source.site,
+                      Radiation.Therapy, Progression.Free.Status,MSIsensor.Score,
+                      Neoadjuvant.Therapy.Type.Administered.Prior.To.Resection.Text), 
+               names_to ="key", values_to = "value") %>% 
+  ggplot(aes(value)) +
+  geom_histogram(bins = 20) + 
+  facet_wrap(~key, scales='free_x')
+
+```
+
+
+
+\newpage
+\section{Kaplan-Meier Curve and Cox PH AssumptionS}
+```{r, warning=FALSE, message=FALSE}
+colnames(new_data)[colnames(new_data)=="Radiation.Therapy"]<-"treat"
+
+colnames(new_data)[colnames(new_data)=="Progress.Free.Survival..Months."]<-"time"
+
+colnames(new_data)[colnames(new_data)=="Progression.Free.Status"]<-"status"
+```
+
+\section{KM Survival Estimate and Confidence interval}
+\subsection{KM Survival Estimates}
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(survival))
+fitKM1 <- survfit(Surv(time,status)~factor(treat), type='kaplan',
+                  data=new_data, error="greenwood", conf.int=.90, se.fit=T)
+fitKM1 #gets the median survival time
+#summary(fitKM1)
+```
+
+
+\newpage
+\section{K-M Survival Plot for Treatment effect only}
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(survminer))
+suppressPackageStartupMessages(library(dplyr))
+
+surv_ob<-survival::Surv(new_data$time, new_data$status)
+
+fit10<-survminer::surv_fit(surv_ob~new_data$treat, data = new_data)
+# summary(fit10)
+ggsurvplot(fit10, pval = TRUE, conf.int = T, ylab="Cancer Progression",
+           xlab="time(months)", 
+           title="KM plot of Cancer Progression Estimates for Treatment groups")
+```
+
+```{r}
+ggsurvplot(fit10, data = new_data, fun = "pct")
+```
+
+The steepness of the curve is determined by the progression(cancer) duration. 
+The probability of cancer progression decreases for for individuals with radiation treatment, as compared to individuals without radiation therapy.\newline
+Progression of cancer comes to a halt at about 80 months for treated group but cancer progression stays constant of about 0.58 after 82 months for cases without radiation therapy.\newline
+
+Though it seems the radiation therapy treatment group has a greater probability of survival than cases with no radiation therapy treatment.
+The log-rank test’s p-value of 0.053 tells us that there is no significant difference between the groups. The null hypothesis is there is no difference, and the alternate hypothesis is the groups are significantly different. Since the p-value is greater than 0.05, we fail to reject the null hypothesis. 
+
+
+\newpage
+\subsubsection{Estimation of Mean Survival Time and SE}
+```{r, warning=FALSE, message=FALSE}
+# ESTIMATION OF THE MEAN SURVIVAL TIME AND ITS SE
+# ------------------------------------------------
+print(fitKM1, print.rmean=T) #restricted mean
+```
+The mean cancer progression time(months) for no treatment group is 120.1 months but mean cancer progression time(months) for therapy treatment is 56 months.
+
+
+\newpage
+\subsection{Assessment of Therapy(Treatment) only}
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(survival))
+fitKM1 <- survfit(Surv(time,status)~factor(treat), data=new_data)
+plot(fitKM1, xlab='time (months)', ylab='cancer progression probaility',
+     lty=2:1, col=c("forestgreen", "red"), lwd=2,
+     main="Alternative Plot of KM Survival Estimates for Therapy Effect")
+legend(110,0.2,c("yes", "no"),col=c("red", "forestgreen"), lty=1:2)
+grid()
+```
+
+**Preamble:** When the two survival curves cross each other, this can be regarded as a violation Cox PH and hence justification of the use of the logrank test. We can confirm the significance this ph violation with logrank test or the schoenfield residual test(preferred)\newline 
+
+**Decision:** We can conclude on the violation of Cox Proportional Hazards Model (non-proportional hazards), Since the two curves obviously cross about midway of the study- This means there is higher variance in survival times of one group that the other.\newline
+
+**Conclusion**, there is higher survival probability for patients who received radiation therapy at the initial phase which begins to drop and maintains a steady survival of about 0.58 at around 80 months and then stabilizes thereof. But patients without neoplasm therapy do not survive past 80 months approx 6.6 years.\newline
+
+***Significance of the variation in the survival groups was confirmed with the log rank test***
+
+
+
+\newpage
+\section{Testing Significance of Difference in Treatment effect only}
+\subsubsection{Logrank test of therapy effect - Not very robust test}
+```{r, warning=FALSE, message=TRUE}
+logrank <- survdiff(Surv(time, status)~treat, data=new_data)
+logrank
+```
+It can be found that the logrank test statistic is $\chi^2_{\mbox{obs}} =$ `r round(logrank$chisq, digits=4)` with p-value `r 1-pchisq(3.7, 1)`   0.05, indicating that there is a statistically significant difference in survival found between cases with no therapy and cases who received therapy treatment at $\alpha=0.05.$. \newline
+It test the null hypothesis of no difference in survival between two or more independent groups. Reject Null when p-value is less than or equal to alpha.\newline.
+
+The logrank test is most likely to detect a difference between groups when the risk of an event is consistently greater for one group than another. It is unlikely to detect a difference when survival curves cross, as can happen when comparing a medical with a surgical intervention. When analysing survival data, the survival curves should always be plotted.
+
+\newpage
+\section{Cox Ph Assumption: Proportionality of Model to Data}
+\subsection{Residual Test: (cox ph test) of Therapy Effect}
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library("survival"))
+res.cox1 <- coxph(Surv(time, status) ~ treat, data =  new_data)
+res.cox1
+```
+\newpage
+\subsubsection{Residual Test: Test Coxph Assumption using Schoenfeld Residuals}
+```{r, message=FALSE, warning=FALSE}
+test.ph1 <- cox.zph(res.cox1)
+test.ph1
+
+suppressPackageStartupMessages(library("survminer"))
+ggcoxzph(test.ph1)
+```
+From the output above, the test is statistically significant for the covariate(radiation therapy), and the global test is also statistically significant. Therefore, we cannot assume the proportional hazards. Thus non proportional hazards model is confirmed.\newline 
+The proportional hazard assumption is supported by a non-significant relationship between residuals and time, and refuted by a significant relationship.\newline
+Our results indicates a significant relationship - Non Proportional Hazard assumption with treatment only.\newline
+
+In the figure above,Graphical diagnostic plot produces graphs of the scaled Schoenfeld residuals against the transformed time for treatment.
+The solid line is a smoothing spline fit to the plot, with the dashed lines representing a +/- 2-standard-error band around the fit.\newline
+***Note that, systematic departures from a horizontal line are indicative of non-proportional hazards, whilst random departures support proportional *** 
+
+
+
+\newpage
+\section{Treatment Effect By Adjusting for Covariates}
+Assessing the treatment effect by adjusting for all other covariates since they may Compared with the unadjusted treatment effect estimator.\newline
+
+\subsection{Assessment of all covariates on coxph assumptions}
+\subsection{KM Plot of Treatment and Age}
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(survival))
+fitKM2 <- survfit(Surv(time,status)~ factor(treat) + Diagnosis.Age,
+             data=new_data)
+
+# plot(fitKM2, xlab='time (months)', ylab='survival probability',
+#      lty=2:1, col=c("forestgreen", "red"), lwd=2,
+#      main="Plot of KM Survival Estimates for Therapy and Age")
+# legend(110,0.2,c("yes", "no"),col=c("red", "forestgreen"), lty=1:2)
+# grid()
+```
+
+
+\newpage
+\section{Schoenfeld Residuals: Cox Ph Assumption when Age is Added}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+res.cox2 <- coxph(Surv(time, status) ~ treat + Diagnosis.Age, 
+                  data =  new_data)
+# res.cox2
+```
+```{r, warning=FALSE, message=FALSE}
+test.ph2 <- cox.zph(res.cox2);test.ph2
+ggcoxzph(test.ph2)
+```
+The proportional hazard assumption is supported by a non-significant relationship between residuals and time, and refuted by a significant relationship.\newline
+Our results indicates a significant relationship - Non Proportional Hazard assumption with treatment only.\newline
+
+From the output above, the test is statistically significant for the covariate(radiation therapy), and the global test is also statistically insignificant. Therefore, we can assume the proportional hazards when age is added to treatment. Thus proportional hazards model is confirmed.\newline 
+
+In the figure above,Graphical diagnostic plot produces graphs of the scaled Schoenfeld residuals against the transformed time for treatment.
+The solid line is a smoothing spline fit to the plot, with the dashed lines representing a +/- 2-standard-error band around the fit.\newline
+
+Treatment violates COXPH assumptions, while "Age at Diagnosis" supports COXPH assumption but the Global test is not statistically significant. Therefore, we can assume the proportional hazards.
+***Note that, systematic departures from a horizontal line are indicative of non-proportional hazards, whilst random departures support proportional.*** 
+
+
+\newpage
+\section{Cox PH Model Assumption for ALL Covariates}
+```{r, warning=FALSE, message=FALSE}
+res.cox3 <- coxph(Surv(time, status) ~ factor(treat) + Diagnosis.Age +
+                    MSI.MANTIS.Score + Mutation.Count+factor(tissue_source.site)
+                  +Fraction.Genome.Altered + factor(In.PanCan.Pathway.Analysis)
+                  + MSIsensor.Score + factor(Prior.Diagnosis)
+                  +TMB..nonsynonymous., 
+                  data =  new_data)
+res.cox3
+
+test.ph3 <- cox.zph(res.cox3)
+test.ph3
+```
+Global test was not statistically significant. Therefore, we can assume the proportional hazards when all covariates are adjusted, thus our predictors accurately proportionate our model.
+
+
+
+\newpage
+\section{Fiting the overall Cox PH Model}
+```{r, warning=FALSE, message=FALSE}
+fit3 <- coxph(Surv(time,status) ~ factor(treat) + Diagnosis.Age + MSI.MANTIS.Score +
+               + Mutation.Count + factor(tissue_source.site) +
+               Fraction.Genome.Altered + factor(In.PanCan.Pathway.Analysis) +
+               MSIsensor.Score + factor(Prior.Diagnosis)  +TMB..nonsynonymous.,
+             data=new_data)
+summary(fit3)
+```
+When adjusted for all covariates, ***MSI MANTIS SCORE*** and ***FRACTION OF GENOME ALTERED*** were statistically significant predictors of the cox ph model.\newline
+A marginal increase in mantis score causes cancer progression rate of 4million times as compared to a reduction in mantis score, adjusting for all covariates.\newline 
+A marginal increase in Fraction of Genome altered causes cancer progression at a rate of 12.4 times faster as compared to decrease in fraction of genome altered, when adjusted for all covariates\newline
+
+**MSI MANTIS SCORE (Microsatellite Instability)** - Is an assessment of how tumor cells mutate, and a measure of the molecular abnormality of cancer tumors, MSI SCORE predicts MSI status which gives the doctor an idea of how to approach/treat tumors. A high "MSI mantis score" indicates a high mutation of tumor cells.
+
+
+
+
+
+
+
+
+
