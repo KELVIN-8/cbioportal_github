@@ -1,0 +1,426 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+    fig_caption: true
+    latex_engine: xelatex
+    number_sections: true
+    toc: true
+    toc_depth: 4
+title: "SURVIVAL ANALYSIS - TCGA PRAD CANCER"
+author: 
+- Kelvin Ofori-Minta
+- University of Texas at El Paso (UTEP) 
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontsize: 11pt
+spacing: single
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{amssymb, bm}
+- \usepackage{amsfonts}
+- \usepackage{amsthm}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhf{}
+- \rhead{Collaborative Research}
+- \lhead{TCGA - Clinical Data}
+- \cfoot{\thepage}
+- \usepackage{algorithm}
+- \usepackage[noend]{algpseudocode}
+---
+
+\newpage
+\section{Loading and Cleaning Data}
+```{r, warning=FALSE, message=FALSE}
+s <- read.csv("tcga_prad.csv", header = T, stringsAsFactors = F, na.strings = "NA")
+#selecting columns of interest
+data<-s[, c(4,7,8,12,13,19,20,21,23,27:32,44:47,50,53:55,58,62,40:42)]
+# write.csv(data,"C://Users//Kelvin//Desktop//Spring 2022//research with Dr. Leung//survival//selected_columns.csv")
+```
+
+\subsection{Inspecting dataframe for missing values }
+```{r, warning=FALSE, message=FALSE}
+require(inspectdf)
+show_plot(inspect_na(data))
+missing = inspect_na(data)
+missing[ , 3] = round(missing[ ,3], 2)
+names(missing) = c("variable", "count", "proportion")
+require(kableExtra)
+# missing<-as.matrix.data.frame(missing)
+kable(missing)
+# as.data.frame.matrix(missing)
+# kable(as.da(missing))
+```
+
+\subsubsection{Rename long variables_kkkiiiiiii}
+```{r}
+colnames(data)[colnames(data)=="Last.Communication.Contact.from.Initial.Pathologic.Diagnosis.Date"]<-"last_contact_from_ initial_diagnosis"
+
+colnames(data)[colnames(data)=="Neoadjuvant.Therapy.Type.Administered.Prior.To.Resection.Text"]<-"Neodjuvant_Therapy_type"
+
+colnames(data)[colnames(data) =="New.Neoplasm.Event.Post.Initial.Therapy.Indicator"] <- "New_Tumor_event"
+
+colnames(data)[colnames(data) =="Person.Neoplasm.Cancer.Status"] <- "Neoplasm_status"
+
+colnames(data)[colnames(data)=="Progress.Free.Survival..Months."] <- "progression_time"
+
+colnames(data)[colnames(data)=="Progression.Free.Status"] <- "progression_status"
+
+
+newdata<-data
+"TMB-H means that the tumor has a high number of mutations. Doctors have found that
+certain immunotherapy drugs are more likely to work
+against TMB-H cancers. This is because the immune
+system may be able to find and attack cancer cells with high
+TMB more easily."
+
+
+"Person neoplasm status...... You are correct, IMO:  tumor free does not mean normal, but rather whether (or not) the tumor (neoplasm) continues to be present.  It is a statement about the progression (or not) of the original disease; whereas normal is a statement that there was no disease to begin with."
+```
+
+
+\newpage
+\subsubsection{Re-coding variables}
+```{r, warning=FALSE, message=FALSE}
+#newdata$Neodjuvant_Therapy_type<-as.integer(ifelse(newdata$Neodjuvant_Therapy_type=="No",1,2))
+
+newdata$Neodjuvant_Therapy_type <- factor(newdata$Neodjuvant_Therapy_type,
+                                    levels=c("No","Yes"),
+                                    labels=c("No","Yes"))
+
+
+# newdata$In.PanCan.Pathway.Analysis<-as.numeric(ifelse(newdata$In.PanCan.Pathway.Analysis=="No",1, 2))
+
+newdata$In.PanCan.Pathway.Analysis<-factor(newdata$In.PanCan.Pathway.Analysis,
+                                           levels=c("No","Yes"),
+                                           labels=c("No","Yes"))
+
+# newdata$Prior.Diagnosis<-as.integer(ifelse(newdata$Prior.Diagnosis=="No", 
+#                                    ifelse(newdata$Prior.Diagnosis=="Yes",2,3)))
+
+newdata$Prior.Diagnosis<-factor(newdata$Prior.Diagnosis, 
+                                levels=c("No","Yes","Yes, History Of Synchronous And Or Bilateral Malignancy"),
+                                labels=c("No","Yes", "yes_history"))
+  
+# newdata$tissue_source.site<-as.integer(ifelse(newdata$tissue_source.site=="university",1,
+#                              ifelse(newdata$tissue_source.site=="Biotech & Pharma",2,
+#                              ifelse(newdata$tissue_source.site=="Hospital",3,4))))
+
+
+newdata$tissue_source.site<-factor(newdata$tissue_source.site,
+                                   levels = c("university","Biotech & Pharma","Hospital","Research center"),
+                                   labels=c("university","biotech_pharma","hospital","research_centers"))
+
+# newdata$New_Tumor_event<-as.integer(ifelse(newdata$New_Tumor_event=="No",1,2))
+
+newdata$New_Tumor_event <- factor(newdata$New_Tumor_event,
+                                    levels=c("No","Yes"),
+                                    labels=c("No","Yes"))
+
+# newdata$Radiation.Therapy<-as.integer(ifelse(newdata$Radiation.Therapy=="No",1,2))
+
+
+newdata$Radiation.Therapy <- factor(newdata$Radiation.Therapy,
+                                    levels=c("No","Yes"),
+                                    labels=c("No","Yes"))
+
+newdata$Neoplasm_status <- factor(newdata$Neoplasm_status,
+                                    levels=c("Tumor Free","With Tumor"),
+                                    labels=c("tumor_free","with_tumor"))
+
+#newdata$Neoplasm_status<-as.integer(ifelse(newdata$Neoplasm_status=="Tumor Free",1,2))
+
+newdata$Race.Category<-factor(newdata$Race.Category,
+                              levels = c("Asian", "Black or African American ", "White"),
+                              labels = c("asian", "b/a_american","white"))
+
+# newdata$Race.Category<-as.integer(ifelse(newdata$Race.Category=="Asian",1,
+#                                          ifelse(newdata$Race.Category=="White",2,3)))
+
+
+newdata$progression_status<-as.integer(ifelse(newdata$progression_status=="0:CENSORED",1,2))
+
+str(newdata)
+```
+
+\newpage
+\section{KM Curve- Default survival probability with Neoplasm status}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit1a <- survfit(Surv(newdata$progression_time, newdata$progression_status) ~ newdata$Neoplasm_status, 
+               data = newdata)
+print(fit1a)
+
+summary(fit1a)$table
+```
+```{r}
+ggsurvplot(fit1a,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+
+
+
+\newpage
+\section{KM Curve- survival probability:Censored cases of Neoplasm Status}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit1b <- survfit(Surv(newdata$progression_time, newdata$progression_status==1) ~ newdata$Neoplasm_status, 
+               data = newdata)
+print(fit1b)
+
+summary(fit1b)$table
+```
+```{r}
+ggsurvplot(fit1b,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+
+\newpage
+\section{KM Curve - survival probability: uncensored cases}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit1c <- survfit(Surv(newdata$progression_time, newdata$progression_status==2) ~ newdata$Neoplasm_status, 
+               data = newdata)
+print(fit1c)
+
+summary(fit1c)$table
+
+#equivalent to Default method
+```
+
+```{r}
+ggsurvplot(fit1c,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+
+\newpage
+\section{KM Curve- survival probability after survey days}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit1d <- survfit(Surv(newdata$progression_time, newdata$progression_status==2) ~ 1, 
+               data = newdata)
+print(fit1d)
+
+summary(fit1d)$table
+```
+
+```{r}
+ggsurvplot(fit1d,
+          pval = TRUE, conf.int = T,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+PFS survival probability after a certain number of days
+
+
+\newpage
+\section{KM Curve- survival probability of neoadjuvant therapy type uncensored cases}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit1e<-survfit(Surv(newdata$progression_time, newdata$progression_status==2) ~ newdata$Neodjuvant_Therapy_type, 
+               data = newdata)
+print(fit1e)
+
+summary(fit1e)$table
+```
+
+```{r}
+ggsurvplot(fit1e,
+          # legend.labs=c("No", "Yes"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+\newpage
+\section{KM Curve- survival probability with New Tumor Event for uncensored cases}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit1f <- survfit(Surv(newdata$progression_time, newdata$progression_status==2) ~ newdata$New_Tumor_event, 
+               data = newdata)
+print(fit1f)
+
+summary(fit1f)$table
+```
+
+```{r}
+ggsurvplot(fit1f,
+           #legend.labs=c("no", "yes"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+
+\newpage
+\section{KM Curve- survival probability: Radiation therapy uncensored}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit2a <- survfit(Surv(newdata$progression_time, newdata$progression_status==2)
+                 ~newdata$Radiation.Therapy
+                   , data = newdata)
+print(fit2a)
+
+summary(fit2a)$table
+```
+
+```{r}
+ggsurvplot(fit2a,
+          pval = TRUE, conf.int = F, 
+          #legend.labs=c("no_therapy", "therapy"),
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+#1 - no & 2-yes......radiation therapy
+```
+
+\newpage
+\section{KM Curve- survival probability: Radiation therapy censored cases}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit2b<- survfit(Surv(newdata$progression_time, newdata$progression_status==1) ~
+                   newdata$Radiation.Therapy, data = newdata)
+print(fit2b)
+
+summary(fit2b)$table
+```
+
+```{r}
+ggsurvplot(fit2b,
+          pval = TRUE, conf.int = F,
+          #legend.labs=c("no_therapy", "therapy"),
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+#1 - no & 2-yes......radiation therapy
+```
+
+#https://rmvpaeme.github.io/KaplanMeier_intro/#exclude_censored_data:_yes_or_no 
+
+
+\newpage
+\section{subset neoplasm status of "With Tumor" and tumor_free}
+```{r}
+kdata<-newdata[newdata$Neoplasm_status=="with_tumor",]
+k2data<-newdata[newdata$Neoplasm_status=="tumor_free",]
+
+write.csv(kdata,"C://Users//Kelvin//Desktop//research with Dr. Leung//survival//neoplasm.status_withtumor.csv", row.names = FALSE)
+
+write.csv(k2data,"C://Users//Kelvin//Desktop//research with Dr. Leung//survival//neoplasm.status_tumorfree.csv", row.names = FALSE)
+
+#C://Users//Kelvin//Desktop//research with Dr. Leung//survival
+```
+
+\section{Alternate plot for uncensored cases}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+uncen_status<-newdata$progression_status=="2" #subset
+fit2c<- survfit(Surv(newdata$progression_time, uncen_status) ~
+                   newdata$Radiation.Therapy, data = newdata)
+print(fit2c)
+
+summary(fit2c)$table
+
+ggsurvplot(fit2c,
+          pval = TRUE, conf.int = F,
+          #legend.labs=c("no_therapy", "therapy"),
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+```
