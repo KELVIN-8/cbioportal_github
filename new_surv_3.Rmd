@@ -56,21 +56,6 @@ kable(missing)
 
 \subsubsection{Rename long variables}
 ```{r}
-# colnames(data)[colnames(data)=="Last.Communication.Contact.from.Initial.Pathologic.Diagnosis.Date"]<-"last_contact_from_ initial_diagnosis"
-# 
-# colnames(data)[colnames(data)=="Neoadjuvant.Therapy.Type.Administered.Prior.To.Resection.Text"]<-"Neodjuvant_Therapy_type"
-# 
-# colnames(data)[colnames(data) =="New.Neoplasm.Event.Post.Initial.Therapy.Indicator"] <- "New_Tumor_event"
-# 
-# colnames(data)[colnames(data) =="Person.Neoplasm.Cancer.Status"] <- "Neoplasm_status"
-# 
-# colnames(data)[colnames(data)=="Progress.Free.Survival..Months."] <- "progression_time"
-# 
-# colnames(data)[colnames(data)=="Progression.Free.Status"] <-"progression_status"
-# 
-# 
-# newdata<-data
-
 "TMB-H means that the tumor has a high number of mutations. Doctors have found that
 certain immunotherapy drugs are more likely to work
 against TMB-H cancers. This is because the immune
@@ -116,12 +101,11 @@ data$Radiation.Therapy <- factor(data$Radiation.Therapy,
                                     labels=c("No","Yes"))
 
 #all white , no adjuvant therapy
-
 str(data)
 ```
 
 \newpage
-\section{KM Curve- Default survival probability with Neoplasm status}
+\section{KM Curve - survival probability with Radiation Therapy}
 ```{r, warning=FALSE, message=FALSE}
 library("survival")
 library("survminer")
@@ -209,7 +193,7 @@ ggsurvplot(fit2c,
 
 
 \newpage
-\section{KM Curve- survival probability:Censored cases of Prior Diagnosis}
+\section{KM Curve- survival probability:Uncensored cases of Prior Diagnosis}
 ```{r, warning=FALSE, message=FALSE}
 library("survival")
 library("survminer")

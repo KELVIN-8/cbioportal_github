@@ -54,22 +54,8 @@ kable(missing)
 # kable(as.da(missing))
 ```
 
-\subsubsection{Rename long variables}
+\subsubsection{Notes}
 ```{r}
-# colnames(data)[colnames(data)=="Last.Communication.Contact.from.Initial.Pathologic.Diagnosis.Date"]<-"last_contact_from_ initial_diagnosis"
-# 
-# colnames(data)[colnames(data)=="Neoadjuvant.Therapy.Type.Administered.Prior.To.Resection.Text"]<-"Neodjuvant_Therapy_type"
-# 
-# colnames(data)[colnames(data) =="New.Neoplasm.Event.Post.Initial.Therapy.Indicator"] <- "New_Tumor_event"
-# 
-# colnames(data)[colnames(data) =="Person.Neoplasm.Cancer.Status"] <- "Neoplasm_status"
-# 
-# colnames(data)[colnames(data)=="Progress.Free.Survival..Months."] <- "progression_time"
-# 
-# colnames(data)[colnames(data)=="Progression.Free.Status"] <-"progression_status"
-# 
-# 
-# newdata<-data
 
 "TMB-H means that the tumor has a high number of mutations. Doctors have found that
 certain immunotherapy drugs are more likely to work
@@ -89,7 +75,6 @@ TMB more easily."
 # newdata$Neodjuvant_Therapy_type <- factor(newdata$Neodjuvant_Therapy_type,
 #                                     levels=c("No","Yes"),
 #                                     labels=c("No","Yes")) all were "no"
-
 
 data$In.PanCan.Pathway.Analysis<-factor(data$In.PanCan.Pathway.Analysis,
                                            levels=c("No","Yes"),
@@ -115,13 +100,11 @@ data$Radiation.Therapy <- factor(data$Radiation.Therapy,
                                     levels=c("No","Yes"),
                                     labels=c("No","Yes"))
 
-#all white , no adjuvant therapy
-
 str(data)
 ```
 
 \newpage
-\section{KM Curve- Default survival probability with Neoplasm status}
+\section{KM Curve- Default survival probability with Radiation Therapy}
 ```{r, warning=FALSE, message=FALSE}
 library("survival")
 library("survminer")
@@ -131,6 +114,7 @@ print(fit1a)
 
 summary(fit1a)$table
 ```
+
 ```{r}
 ggsurvplot(fit1a,
           #legend.labs=c("tumor_free", "with_tumor"),
@@ -172,7 +156,6 @@ ggsurvplot(fit1b,
           surv.median.line = "hv", # Specify median survival
           ggtheme = theme_bw(), # Change ggplot2 theme
           palette = c("#E7B800", "#2E9FDF"))
-
 #1 - censored & 2- progression
 #1 - tumor_free & 2 with tumor .....neoplasm status 
 #1 - NO & 2-YES .....TREATMENT CODE
