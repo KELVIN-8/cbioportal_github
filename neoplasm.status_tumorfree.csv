@@ -1,0 +1,401 @@
+"Diagnosis.Age","Aneuploidy.Score","Buffa.Hypoxia.Score","last_contact_from_ initial_diagnosis","Birth.from.Initial.Pathologic.Diagnosis.Date","Ethnicity.Category","Form.completion.date","Fraction.Genome.Altered","Neodjuvant_Therapy_type","Informed.consent.verified","In.PanCan.Pathway.Analysis","MSI.MANTIS.Score","MSIsensor.Score","Mutation.Count","New_Tumor_event","Prior.Diagnosis","Race.Category","Radiation.Therapy","Ragnum.Hypoxia.Score","Sex","Tissue.Prospective.Collection.Indicator","Tissue.Retrospective.Collection.Indicator","tissue_source.site","TMB..nonsynonymous.","Winter.Hypoxia.Score","Neoplasm_status","progression_time","progression_status"
+51,0,-27,621,-18658,NA,"3/29/2014",0.03,"No","Yes","Yes",0.3257,0,22,"No","No",NA,"No",-24,"Male","No","Yes","research_centers",0.7,-34,"tumor_free",20.41621462,1
+57,0,-29,1701,-20958,NA,"3/30/2014",0.0211,"No","Yes","Yes",0.3286,0,27,"No","No",NA,"No",-24,"Male","No","Yes","research_centers",0.9,-26,"tumor_free",55.92267482,1
+47,14,-39,1373,-17365,NA,"3/29/2014",0.1418,"No","Yes","Yes",0.3152,0,39,"No","No",NA,"Yes",-22,"Male","No","Yes","research_centers",1.3,-42,"tumor_free",45.13923135,1
+52,0,-25,671,-19065,NA,"3/29/2014",0.0092,"No","Yes","Yes",0.3136,0,24,"No","No",NA,"No",-22,"Male","No","Yes","research_centers",0.8,-36,"tumor_free",22.06003222,1
+70,2,NA,1378,-25904,NA,"3/29/2014",0.0756,"No","Yes","Yes",0.3361,0.03,30,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",1,NA,"tumor_free",45.30361311,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+69,1,-25,863,-25557,NA,"3/29/2014",0.0776,"No","Yes","Yes",0.335,0,34,"Yes","No",NA,"No",-22,"Male","No","Yes","research_centers",1.133333333,-26,"tumor_free",6.509517704,2
+57,0,NA,1364,-20866,NA,"7/7/2014",0.0222,"No","Yes","Yes",0.3205,0,14,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",0.466666667,NA,"tumor_free",44.84334418,1
+57,1,NA,1272,-21183,NA,"7/7/2014",0.0208,"No","Yes","Yes",0.3296,0.06,20,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",0.666666667,NA,"tumor_free",41.8187198,1
+56,1,NA,615,-20582,NA,"7/7/2014",0.04,"No","Yes","Yes",0.3309,0.04,21,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",0.7,NA,"tumor_free",20.21895651,1
+64,14,NA,350,-23665,NA,"11/14/2014",0.1387,"No","Yes","Yes",0.3414,0.05,25,"No","No",NA,"No",NA,"Male","Yes","No","biotech_pharma",0.833333333,NA,"tumor_free",11.50672321,1
+73,1,-23,91,-26753,"Not Hispanic Or Latino","3/16/2012",0.0572,"No","Yes","Yes",0.2518,0,46,NA,"No","white",NA,-18,"Male","Yes","No","biotech_pharma",1.533333333,-22,"tumor_free",2.991748036,1
+72,0,-35,212,-26329,"Not Hispanic Or Latino","3/16/2012",0.0011,"No","Yes","Yes",0.2594,0,15,"No","No","white","No",-20,"Male","Yes","No","biotech_pharma",0.5,-46,"tumor_free",6.969786633,1
+65,4,-33,671,-23953,"Not Hispanic Or Latino","3/16/2012",0.0882,"No","Yes","Yes",0.2588,0.01,34,"No","No","white","No",-20,"Male","Yes","No","biotech_pharma",1.133333333,-40,"tumor_free",22.06003222,1
+57,0,-35,31,-20880,"Not Hispanic Or Latino","3/21/2012",0.076,"No","Yes","Yes",0.2611,0.02,21,NA,"No","white",NA,-14,"Male","Yes","No","biotech_pharma",0.7,-48,"tumor_free",1.019166913,1
+56,0,-25,395,-20759,"Not Hispanic Or Latino","3/16/2012",0.0576,"No","Yes","Yes",0.2602,0.04,21,"No","No","white","Yes",-18,"Male","Yes","No","biotech_pharma",0.7,-44,"tumor_free",12.98615906,1
+66,NA,-35,425,-24321,"Not Hispanic Or Latino","3/16/2012",0,"No","Yes","No",0.2748,0,NA,"Yes","No","white","No",-18,"Male","Yes","No","biotech_pharma",0,-36,"tumor_free",13.97244962,2
+64,1,-25,60,-23621,"Not Hispanic Or Latino","3/16/2012",0.0505,"No","Yes","Yes",0.2721,0.01,21,NA,"No","white",NA,-18,"Male","Yes","No","biotech_pharma",0.7,-34,"tumor_free",1.972581122,1
+68,NA,NA,91,-24837,"Not Hispanic Or Latino","3/16/2012",NA,"No","Yes","No",0.2674,0,24,NA,"No","white",NA,NA,"Male","Yes","No","biotech_pharma",0.8,NA,"tumor_free",2.991748036,1
+57,0,-35,731,-20941,"Not Hispanic Or Latino","3/16/2012",0.0125,"No","Yes","Yes",0.2718,0.01,9,"No","No","white","Yes",-20,"Male","Yes","No","biotech_pharma",0.3,-42,"tumor_free",24.03261334,1
+72,0,-29,396,-26389,"Not Hispanic Or Latino","3/16/2012",0.0118,"No","Yes","Yes",0.2643,0.03,34,"No","No","white","No",-14,"Male","Yes","No","biotech_pharma",1.133333333,-24,"tumor_free",13.01903541,1
+68,4,-21,1065,-24957,"Not Hispanic Or Latino","3/16/2012",0.2044,"No","Yes","Yes",0.2715,0.04,29,"Yes","No","white","No",2,"Male","Yes","No","biotech_pharma",0.966666667,-38,"tumor_free",11.9998685,2
+66,0,-29,943,-24290,"Not Hispanic Or Latino","3/16/2012",0.0319,"No","Yes","Yes",0.2548,0.01,39,"No","No","white","Yes",-10,"Male","Yes","No","biotech_pharma",1.3,-44,"tumor_free",31.00239997,1
+70,5,-33,31,-25780,"Not Hispanic Or Latino","3/21/2012",0.1622,"No","Yes","Yes",0.2613,0.1,47,NA,"Yes","white",NA,-20,"Male","Yes","No","biotech_pharma",1.566666667,-24,"tumor_free",1.019166913,1
+61,8,-1,28,-22433,"Not Hispanic Or Latino","3/16/2012",0.3199,"No","Yes","Yes",0.2696,0.09,48,NA,"No","white",NA,8,"Male","Yes","No","biotech_pharma",1.6,-6,"tumor_free",0.920537857,1
+60,1,-33,1339,-22068,"Not Hispanic Or Latino","3/16/2012",0.1191,"No","Yes","Yes",0.2841,0,60,"No","No","white","Yes",-14,"Male","Yes","No","biotech_pharma",2,-34,"tumor_free",44.02143538,1
+66,NA,-31,365,-24380,"Not Hispanic Or Latino","3/16/2012",0,"No","Yes","Yes",0.2624,0,16,"No","Yes","white","No",-16,"Male","Yes","No","biotech_pharma",0.533333333,-36,"tumor_free",11.9998685,1
+66,2,-39,31,-24257,"Not Hispanic Or Latino","3/16/2012",0.0578,"No","Yes","Yes",0.2607,0.01,34,NA,"Yes","white",NA,-20,"Male","Yes","No","biotech_pharma",1.1,-38,"tumor_free",1.019166913,1
+55,1,-35,700,-20364,"Not Hispanic Or Latino","3/16/2012",0.0544,"No","Yes","Yes",0.2822,0.05,27,"No","No","white","No",-16,"Male","Yes","No","biotech_pharma",0.9,-46,"tumor_free",23.01344643,1
+55,3,-25,31,-20392,"Not Hispanic Or Latino","3/16/2012",0.0616,"No","Yes","Yes",0.2647,0,29,NA,"No","white",NA,-16,"Male","Yes","No","biotech_pharma",0.966666667,-36,"tumor_free",1.019166913,1
+66,1,-23,458,-24287,"Not Hispanic Or Latino","3/16/2012",0.0836,"No","Yes","Yes",0.3007,0,35,"No","No","white","No",-24,"Male","Yes","No","biotech_pharma",1.166666667,-28,"tumor_free",15.05736923,1
+72,0,-33,731,-26480,"Not Hispanic Or Latino","3/16/2012",0.0471,"No","Yes","Yes",0.2662,0.04,39,"No","No","white","No",-14,"Male","Yes","No","biotech_pharma",1.3,-36,"tumor_free",24.03261334,1
+63,NA,-31,396,-23101,"Not Hispanic Or Latino","3/16/2012",0.0353,"No","Yes","Yes",0.2627,0,26,"No","No","white","No",-18,"Male","Yes","No","biotech_pharma",0.866666667,-42,"tumor_free",13.01903541,1
+63,0,-35,486,-23194,"Not Hispanic Or Latino","3/16/2012",0.0255,"No","Yes","Yes",0.2662,0,46,"No","Yes","white","Yes",-18,"Male","Yes","No","biotech_pharma",1.533333333,-32,"tumor_free",15.97790709,1
+69,6,-13,821,-25233,"Not Hispanic Or Latino","3/16/2012",0.2537,"No","Yes","Yes",0.2555,0.15,30,NA,"No","white","No",2,"Male","Yes","No","biotech_pharma",1,-14,"tumor_free",26.99148503,1
+61,0,-27,304,-22494,"Not Hispanic Or Latino","3/16/2012",0,"No","Yes","Yes",0.2699,0.02,3,"No","No","white","No",-16,"Male","Yes","No","biotech_pharma",0.1,-30,"tumor_free",9.99441102,1
+64,1,-37,974,-23529,"Not Hispanic Or Latino","3/16/2012",0.0336,"No","Yes","Yes",0.2693,0.04,20,"No","Yes","white","No",-16,"Male","Yes","No","biotech_pharma",0.666666667,-38,"tumor_free",32.02156689,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+65,0,-33,882,-23924,"Not Hispanic Or Latino","3/16/2012",0.044,"No","Yes","Yes",0.2695,0,24,"No","No","white","No",-20,"Male","Yes","No","biotech_pharma",0.8,-28,"tumor_free",28.9969425,1
+50,0,-39,1477,-18596,"Not Hispanic Or Latino","3/29/2012",8e-04,"No","Yes","Yes",0.2665,0,27,"No","No","white","No",-20,"Male","Yes","No","university",0.9,-30,"tumor_free",48.55837196,1
+68,4,-43,1760,-24904,"Not Hispanic Or Latino","3/29/2012",0.0709,"No","Yes","Yes",0.2615,0,68,"No","No","white","No",-20,"Male","Yes","No","university",2.266666667,-46,"tumor_free",57.86237959,1
+59,2,-33,595,-21897,"Not Hispanic Or Latino","3/30/2012",0.0687,"No","Yes","Yes",0.2588,0.01,32,NA,"No","white","No",-14,"Male","Yes","No","university",1.033333333,-36,"tumor_free",19.56142946,1
+47,0,-37,405,-17523,"Not Hispanic Or Latino","3/30/2012",0.0283,"No","Yes","Yes",0.26,0,17,NA,"No","white","No",-16,"Male","Yes","No","university",0.6,-38,"tumor_free",13.31492258,1
+56,2,-39,1720,-20472,"Not Hispanic Or Latino","3/30/2012",0.0012,"No","Yes","Yes",0.2612,0.01,28,"No","No","white","No",-16,"Male","Yes","No","university",0.933333333,-38,"tumor_free",56.54732551,1
+61,1,-27,1415,-22286,"Not Hispanic Or Latino","3/30/2012",0.0438,"No","Yes","Yes",0.2581,0,30,"No","No","asian","No",-14,"Male","Yes","No","university",1,-26,"tumor_free",46.52003814,1
+55,2,-23,1365,-20409,"Not Hispanic Or Latino","3/30/2012",0.0709,"No","Yes","Yes",0.2751,0.02,17,"No","No","white","No",-20,"Male","Yes","No","university",0.566666667,-24,"tumor_free",44.87622054,1
+50,0,-37,1171,-18447,NA,"3/30/2012",0,"No","Yes","Yes",0.2697,0,11,"No","No",NA,"No",-22,"Male","Yes","No","university",0.366666667,-34,"tumor_free",38.49820824,1
+50,0,-37,1391,-18395,"Not Hispanic Or Latino","3/30/2012",2e-04,"No","Yes","Yes",0.2653,0,7,"No","No","white","No",-16,"Male","Yes","No","university",0.233333333,-44,"tumor_free",45.73100569,1
+57,0,-35,922,-21164,"Not Hispanic Or Latino","4/2/2012",0.0415,"No","Yes","Yes",0.2667,0.01,27,"No","No","white","No",-18,"Male","Yes","No","university",0.9,-36,"tumor_free",30.31199658,1
+67,NA,-35,1381,-24617,"Not Hispanic Or Latino","4/2/2012",0,"No","Yes","Yes",0.2664,0.01,8,"No","No","white","No",-16,"Male","Yes","No","university",0.266666667,-48,"tumor_free",45.40224217,1
+54,4,-27,1457,-19759,"Not Hispanic Or Latino","4/2/2012",0.1945,"No","Yes","Yes",0.2557,0.05,29,"No","No","white","No",-10,"Male","Yes","No","university",0.966666667,-40,"tumor_free",47.90084492,1
+65,0,-35,1965,-23758,"Not Hispanic Or Latino","4/2/2012",0.0136,"No","Yes","Yes",0.2577,0,21,"No","No","white","No",-16,"Male","Yes","No","university",0.7,-38,"tumor_free",64.60203176,1
+63,2,-29,1464,-23368,"Not Hispanic Or Latino","4/2/2012",0.1386,"No","Yes","Yes",0.2652,0,19,"No","No","white","No",-22,"Male","Yes","No","university",0.633333333,-36,"tumor_free",48.13097939,1
+48,2,-35,1887,-17895,"Not Hispanic Or Latino","4/2/2012",0.1085,"No","Yes","Yes",0.2695,0,19,"No","No","white","No",-18,"Male","Yes","No","university",0.633333333,-48,"tumor_free",62.0376763,1
+55,3,-35,1476,-20409,"Not Hispanic Or Latino","4/3/2012",0.1235,"No","Yes","Yes",0.2797,0.02,36,"No","No",NA,"No",-18,"Male","Yes","No","university",1.2,-40,"tumor_free",48.52549561,1
+46,0,-29,1733,-17127,"Not Hispanic Or Latino","4/3/2012",0.0309,"No","Yes","Yes",0.262,0,14,"No","No","white","No",-20,"Male","Yes","No","university",0.466666667,-42,"tumor_free",56.97471809,1
+66,4,-25,1829,-24165,"Not Hispanic Or Latino","4/3/2012",0.1629,"No","Yes","Yes",0.2647,0,27,"No","No","white","No",0,"Male","Yes","No","university",0.9,-36,"tumor_free",60.13084788,1
+60,NA,-29,1832,-22097,"Not Hispanic Or Latino","4/3/2012",0,"No","Yes","Yes",0.2903,0.01,13,"No","No","white","No",-20,"Male","Yes","No","university",0.433333333,-36,"tumor_free",60.22947694,1
+49,1,-33,1889,-17980,"Not Hispanic Or Latino","4/3/2012",0.0454,"No","Yes","Yes",0.258,0,22,"No","No","white","No",-12,"Male","Yes","No","university",0.733333333,-30,"tumor_free",62.103429,1
+55,0,-25,1889,-20422,"Not Hispanic Or Latino","4/3/2012",0.0327,"No","Yes","Yes",0.2528,0,19,"No","No","white","No",-16,"Male","Yes","No","university",0.633333333,-40,"tumor_free",62.103429,1
+64,4,-33,1962,-23669,"Not Hispanic Or Latino","4/3/2012",0.1289,"No","Yes","Yes",0.2689,0.04,71,"No","No","white","No",-20,"Male","Yes","No","university",2.333333333,-34,"tumor_free",64.5034027,1
+63,0,-13,2279,-23304,"Not Hispanic Or Latino","4/4/2012",0.0736,"No","Yes","Yes",0.2677,0,40,"No","No","white","No",-20,"Male","Yes","No","university",1.333333333,-16,"tumor_free",74.9252063,1
+51,0,-35,2079,-18802,"Not Hispanic Or Latino","4/3/2012",0.0245,"No","Yes","Yes",0.2546,0,15,"No","No","white","No",-14,"Male","Yes","No","university",0.466666667,-34,"tumor_free",68.34993589,1
+69,2,-33,1778,-25234,"Not Hispanic Or Latino","4/4/2012",0.0694,"No","Yes","Yes",0.2574,0,29,"No","No","white","No",-16,"Male","Yes","No","university",0.966666667,-30,"tumor_free",58.45415393,1
+61,1,-41,1832,-22316,"Not Hispanic Or Latino","4/4/2012",0.015,"No","Yes","Yes",0.2709,0,47,"No","No","white","No",-16,"Male","Yes","No","university",1.566666667,-46,"tumor_free",60.22947694,1
+62,2,-37,1273,-22760,"Not Hispanic Or Latino","4/4/2012",0.0111,"No","Yes","Yes",0.3296,0.29,29,"No","No","white","No",-20,"Male","Yes","No","university",0.966666667,-30,"tumor_free",41.85159615,1
+57,3,-29,1828,-21110,"Not Hispanic Or Latino","4/4/2012",0.0722,"No","Yes","Yes",0.2755,0.01,19,"No","No","white","No",-22,"Male","Yes","No","university",0.633333333,-26,"tumor_free",60.09797153,1
+60,2,-33,1513,-21942,"Not Hispanic Or Latino","4/4/2012",0.0794,"No","Yes","Yes",0.2605,0,23,"No","Yes","white","No",-16,"Male","Yes","No","university",0.766666667,-38,"tumor_free",49.74192064,1
+65,1,-33,2687,-23986,"Not Hispanic Or Latino","4/5/2012",0.0616,"No","Yes","Yes",0.3155,0,40,"No","No","white","No",-22,"Male","Yes","No","university",2.033333333,-44,"tumor_free",88.33875793,1
+59,4,-21,2572,-21741,"Not Hispanic Or Latino","4/5/2012",0.076,"No","Yes","Yes",0.2867,0,55,"No","Yes","white","No",-22,"Male","Yes","No","university",3.466666667,-34,"tumor_free",84.55797745,1
+44,0,-25,2850,-16425,"Not Hispanic Or Latino","4/5/2012",0.0036,"No","Yes","Yes",0.3004,0,92,"No","No","white","No",-20,"Male","Yes","No","university",5.366666667,-40,"tumor_free",93.69760331,1
+71,0,-25,2542,-26181,NA,"3/3/2014",0.0499,"No","Yes","Yes",0.3217,0,24,"No","No",NA,"No",-22,"Male","Yes","No","university",0.8,-26,"tumor_free",83.57168689,1
+62,1,-33,1150,-22766,"Not Hispanic Or Latino","4/5/2012",0.0268,"No","Yes","Yes",0.3115,0,33,"No","No","white","No",-18,"Male","Yes","No","university",1.933333333,-42,"tumor_free",37.80780485,1
+68,1,-23,1008,-25154,"Not Hispanic Or Latino","4/5/2012",0.091,"No","Yes","Yes",0.3382,0,22,"No","No","white","No",-16,"Male","Yes","No","university",1.433333333,-32,"tumor_free",33.13936286,1
+71,0,-27,771,-26064,"Not Hispanic Or Latino","4/5/2012",0.0281,"No","Yes","Yes",0.314,0.04,32,"No","No","white","No",-22,"Male","Yes","No","university",2.1,-28,"tumor_free",25.34766742,1
+57,0,-37,824,-21108,"Not Hispanic Or Latino","4/5/2012",0.0318,"No","Yes","Yes",0.3395,0,30,"No","No",NA,"No",-16,"Male","Yes","No","university",1,-50,"tumor_free",27.09011408,1
+63,1,NA,1070,-23029,NA,"3/3/2014",0.0457,"No","Yes","Yes",0.3188,0.05,18,"No","Yes",NA,"No",NA,"Male","Yes","No","university",0.6,NA,"tumor_free",35.17769668,1
+61,0,-41,923,-22475,"Not Hispanic Or Latino","4/5/2012",0.0189,"No","Yes","Yes",0.2991,0,28,"No","No","white","No",-16,"Male","Yes","No","university",1.866666667,-46,"tumor_free",30.34487293,1
+70,0,-35,842,-25756,"Not Hispanic Or Latino","4/5/2012",0.036,"No","Yes","Yes",0.3458,0,26,"No","No","white","No",-20,"Male","Yes","No","university",1.733333333,-50,"tumor_free",27.68188842,1
+68,4,-31,191,-25050,"Not Hispanic Or Latino","4/5/2012",0.1741,"No","Yes","Yes",0.3671,0,38,NA,"No","white",NA,-20,"Male","Yes","No","university",2.533333333,-32,"tumor_free",6.27938324,1
+64,0,-33,742,-23458,"Not Hispanic Or Latino","4/5/2012",0.0322,"No","Yes","Yes",0.348,0,24,"No","No","white","No",-22,"Male","Yes","No","university",1.6,-28,"tumor_free",24.39425321,1
+65,1,-33,1073,-23937,"Not Hispanic Or Latino","4/6/2012",0.064,"No","Yes","Yes",0.3098,0,54,"No","No","white","No",-20,"Male","Yes","No","university",3.6,-34,"tumor_free",35.27632574,1
+71,2,-31,1167,-25965,"Not Hispanic Or Latino","4/6/2012",0.1234,"No","Yes","Yes",0.4712,4.18,357,"No","No",NA,"No",-16,"Male","Yes","No","university",21.43333333,-30,"tumor_free",38.36670283,1
+70,2,-35,787,-25600,"Not Hispanic Or Latino","4/6/2012",0.0357,"No","Yes","Yes",0.3263,0.06,37,"No","No","white","No",-14,"Male","Yes","No","university",2.333333333,-38,"tumor_free",25.87368906,1
+63,7,-37,781,-23183,"Not Hispanic Or Latino","4/6/2012",0.2403,"No","Yes","Yes",0.3355,0.07,36,"No","No","white","No",-18,"Male","Yes","No","university",2.4,-52,"tumor_free",25.67643094,1
+54,0,-37,1177,-19939,"Not Hispanic Or Latino","4/6/2012",0.0206,"No","Yes","Yes",0.3321,0,18,"No","No","white","No",-20,"Male","Yes","No","university",1.2,-32,"tumor_free",38.69546635,1
+62,1,-33,1096,-22793,"Not Hispanic Or Latino","4/6/2012",0.0839,"No","Yes","Yes",0.3371,0.04,30,"No","No","white","No",-24,"Male","Yes","No","university",2,-44,"tumor_free",36.03248184,1
+53,0,-37,859,-19623,"Not Hispanic Or Latino","4/6/2012",0.0647,"No","Yes","Yes",0.3475,0,27,"No","No","white","No",-16,"Male","Yes","No","university",0.9,-46,"tumor_free",28.2407864,1
+66,7,-13,1105,-24107,"Not Hispanic Or Latino","4/6/2012",0.3433,"No","Yes","Yes",0.3603,0.06,30,"No","No",NA,"No",-16,"Male","Yes","No","university",1.866666667,-20,"tumor_free",36.328369,1
+67,NA,-31,1118,-24621,"Not Hispanic Or Latino","4/9/2012",1e-04,"No","Yes","Yes",0.3074,0,19,"No","No","white","No",-20,"Male","Yes","No","university",0.633333333,-38,"tumor_free",36.75576158,1
+53,0,-37,1396,-19454,"Not Hispanic Or Latino","4/9/2012",0.0252,"No","Yes","Yes",0.3138,0.01,17,"No","No","white","No",-24,"Male","Yes","No","university",1.133333333,-46,"tumor_free",45.89538745,1
+49,0,-29,114,-17982,"Not Hispanic Or Latino","4/9/2012",0.0031,"No","Yes","Yes",0.3176,0,11,NA,"No","white","No",-16,"Male","Yes","No","university",0.366666667,-42,"tumor_free",3.747904133,1
+67,0,-35,1306,-24478,"Not Hispanic Or Latino","4/9/2012",0.0372,"No","Yes","Yes",0.3006,0,13,"No","No","white","No",-22,"Male","Yes","No","university",0.833333333,-36,"tumor_free",42.93651576,1
+53,1,-33,983,-19616,"Not Hispanic Or Latino","4/9/2012",0.015,"No","Yes","Yes",0.3237,0,25,"No","No","white","No",-18,"Male","Yes","No","university",0.833333333,-44,"tumor_free",32.31745406,1
+63,0,-33,2347,-23371,NA,"10/12/2012",0.0819,"No","Yes","Yes",0.312,0,22,"No","No",NA,"No",-18,"Male","Yes","No","university",1.466666667,-36,"tumor_free",77.16079824,1
+58,1,-25,1159,-21209,NA,"10/15/2012",0.0984,"No","Yes","Yes",0.2922,0.01,21,"No","No",NA,"No",-14,"Male","Yes","No","university",0.7,-36,"tumor_free",38.10369201,1
+63,11,-29,756,-23104,NA,"10/19/2012",0.2158,"No","Yes","Yes",0.3318,0.01,43,"No","No",NA,"No",-8,"Male","Yes","No","university",2.8,-36,"tumor_free",6.443765,2
+69,0,-31,766,-25561,NA,"1/22/2013",0.0311,"No","Yes","Yes",0.3154,0,42,"No","No",NA,"No",-14,"Male","Yes","No","university",2.766666667,-48,"tumor_free",25.18328566,1
+66,0,NA,657,-24305,NA,"1/22/2013",0,"No","Yes","Yes",0.3247,0,1,"No","Yes",NA,"No",NA,"Male","Yes","No","university",0.033333333,NA,"tumor_free",21.59976329,1
+53,0,-29,626,-19466,NA,"1/22/2013",4e-04,"No","Yes","Yes",0.2985,0,11,"No","No",NA,"No",-20,"Male","Yes","No","university",0.366666667,-38,"tumor_free",20.58059638,1
+57,NA,NA,524,-21054,NA,"1/23/2013",0,"No","Yes","Yes",0.3085,0,5,NA,"No",NA,"No",NA,"Male","Yes","No","university",0.166666667,NA,"tumor_free",17.22720847,1
+57,4,NA,783,-21160,NA,"1/24/2013",0.1446,"No","Yes","Yes",0.3086,0.01,32,"No","No",NA,"No",NA,"Male","Yes","No","university",1.066666667,NA,"tumor_free",7.068415689,2
+71,2,-35,668,-26219,NA,"1/24/2013",0.2006,"No","Yes","Yes",0.2991,0.03,47,"No","Yes",NA,"No",-20,"Male","Yes","No","university",1.566666667,-42,"tumor_free",21.96140316,1
+60,0,NA,724,-22059,NA,"1/24/2013",0,"No","Yes","Yes",0.315,0,2,"No","No",NA,"No",NA,"Male","Yes","No","university",0.066666667,NA,"tumor_free",23.80247888,1
+57,NA,-39,668,-21046,NA,"1/24/2013",0,"No","Yes","Yes",0.3214,0,7,"No","No",NA,"No",-24,"Male","Yes","No","university",0.233333333,-42,"tumor_free",21.96140316,1
+55,3,NA,710,-20204,NA,"3/3/2014",0,"No","Yes","Yes",0.301,0,34,"No","No",NA,"No",NA,"Male","Yes","No","university",1.133333333,NA,"tumor_free",23.34220995,1
+66,2,NA,393,-24297,NA,"3/5/2014",0.1029,"No","Yes","Yes",0.314,0.01,36,"No","No",NA,"No",NA,"Male","Yes","No","university",1.166666667,NA,"tumor_free",12.92040635,1
+67,1,-21,417,-24558,NA,"3/5/2014",0.0394,"No","Yes","Yes",0.3002,0.01,32,"No","No",NA,"No",-16,"Male","Yes","No","university",1.066666667,-30,"tumor_free",13.7094388,1
+57,0,-29,666,-20821,NA,"3/5/2014",0,"No","Yes","Yes",0.3127,0,19,"No","No",NA,"No",-24,"Male","Yes","No","university",0.633333333,-36,"tumor_free",21.89565046,1
+62,0,-15,451,-22904,NA,"3/4/2014",0.078,"No","Yes","Yes",0.3196,0,31,"No","Yes",NA,"No",-22,"Male","Yes","No","university",1.033333333,-32,"tumor_free",14.82723477,1
+65,0,NA,230,-23767,NA,"3/4/2014",0.075,"No","Yes","Yes",0.311,0,32,"No","No",NA,"No",NA,"Male","Yes","No","university",1.066666667,NA,"tumor_free",7.561560969,1
+64,0,-31,873,-23598,NA,"3/4/2014",2e-04,"No","Yes","Yes",0.331,0,21,"No","Yes",NA,"No",-22,"Male","Yes","No","university",0.7,-38,"tumor_free",28.70105533,1
+56,0,-23,250,-20587,NA,"3/4/2014",0.0162,"No","Yes","Yes",0.3275,0,14,"No","No",NA,"No",-22,"Male","Yes","No","university",0.466666667,-26,"tumor_free",8.21908801,1
+64,0,-35,432,-23458,NA,"3/4/2014",0,"No","Yes","Yes",0.3218,0,2,"No","No",NA,"No",-24,"Male","Yes","No","university",0.066666667,-30,"tumor_free",14.20258408,1
+56,4,-31,474,-20734,NA,"3/5/2014",0.0822,"No","Yes","Yes",0.3335,0.05,19,"No","No",NA,"No",-18,"Male","Yes","No","university",0.633333333,-34,"tumor_free",15.58339087,1
+59,0,-31,197,-21748,NA,"3/4/2014",0,"No","Yes","Yes",0.3221,0,8,"No","No",NA,"No",-22,"Male","Yes","No","university",0.266666667,-40,"tumor_free",6.476641352,1
+58,0,-35,476,-21530,NA,"3/4/2014",1e-04,"No","Yes","Yes",0.3182,0.04,4,"No","No",NA,"No",-22,"Male","Yes","No","university",0.133333333,-36,"tumor_free",15.64914357,1
+64,1,-31,128,-23603,NA,"3/4/2014",0.0738,"No","Yes","Yes",0.3229,0,45,"No","No",NA,"No",-18,"Male","Yes","No","university",1.5,-30,"tumor_free",4.208173061,1
+61,NA,NA,197,-22499,NA,"3/4/2014",NA,"No","Yes","No",0.3318,0,32,"No","No",NA,"No",NA,"Male","Yes","No","university",1.066666667,NA,"tumor_free",6.476641352,2
+58,2,-27,329,-21506,NA,"3/24/2014",0.0836,"No","Yes","Yes",0.3157,0,32,"No","No",NA,"No",-24,"Male","Yes","No","university",1.1,-36,"tumor_free",10.81631982,1
+51,0,NA,282,-18875,NA,"3/24/2014",0,"No","Yes","No",0.3206,0,15,"No","No",NA,"No",NA,"Male","Yes","No","university",0.5,NA,"tumor_free",9.271131275,1
+64,0,-31,138,-23472,NA,"3/24/2014",0,"No","Yes","Yes",0.3166,0,8,"No","No",NA,"No",-24,"Male","Yes","No","university",0.266666667,-40,"tumor_free",4.536936582,1
+61,2,NA,131,-22626,NA,"6/23/2014",0.0543,"No","Yes","Yes",0.3281,0.06,13,"No","No",NA,"No",NA,"Male","Yes","No","university",0.433333333,NA,"tumor_free",4.306802117,1
+51,1,NA,145,-18648,NA,"6/24/2014",1e-04,"No","Yes","Yes",0.3237,0,15,"No","No",NA,"No",NA,"Male","Yes","No","university",0.5,NA,"tumor_free",4.767071046,1
+52,1,-27,864,-19144,"Not Hispanic Or Latino","2/17/2012",0.0483,"No","Yes","Yes",0.3334,0,26,"No","No","asian","No",-20,"Male","Yes","No","biotech_pharma",0.866666667,-36,"tumor_free",28.40516816,1
+62,11,-15,469,-22888,"Not Hispanic Or Latino","3/16/2012",0.2165,"No","Yes","Yes",0.3182,0.95,44,"No","No","white","No",-12,"Male","Yes","No","biotech_pharma",1.466666667,-18,"tumor_free",15.41900911,1
+70,16,11,877,-25931,NA,"2/11/2013",0.4645,"No","Yes","Yes",0.3483,0.02,26,"No","No",NA,"Yes",12,"Male","Yes","No","biotech_pharma",0.866666667,2,"tumor_free",28.83256074,1
+74,0,NA,524,-27282,NA,"7/12/2013",0,"No","Yes","Yes",0.3117,0,NA,"No","No",NA,"No",NA,"Male","Yes","No","biotech_pharma",0,NA,"tumor_free",17.22720847,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+68,0,-37,616,-25115,NA,"2/27/2014",1e-04,"No","Yes","Yes",0.3192,0,14,"No","No",NA,NA,-24,"Male","Yes","No","biotech_pharma",0.466666667,-34,"tumor_free",20.25183286,1
+67,4,-23,1266,-24797,"Not Hispanic Or Latino","3/20/2012",0.0115,"No","Yes","Yes",0.2856,0,25,"No","No","white","No",-20,"Male","No","Yes","hospital",0.833333333,-18,"tumor_free",41.62146168,1
+55,0,NA,2657,-20166,"Not Hispanic Or Latino","3/20/2012",0.0657,"No","Yes","Yes",0.344,0.04,20,"Yes","No","white","No",NA,"Male","No","Yes","hospital",1.333333333,NA,"tumor_free",38.79409541,2
+66,1,-21,2465,-24249,"Not Hispanic Or Latino","3/19/2012",0.0463,"No","Yes","Yes",0.2902,0,29,"No","No","white","No",-22,"Male","No","Yes","hospital",1.866666667,-22,"tumor_free",81.04020778,1
+57,NA,-23,2068,-20851,"Not Hispanic Or Latino","3/19/2012",1e-04,"No","Yes","Yes",0.2877,0,15,"No","No","white","No",-22,"Male","No","Yes","hospital",0.5,-24,"tumor_free",67.98829602,1
+58,2,NA,2551,-21305,NA,"10/29/2013",0.0368,"No","Yes","Yes",0.318,0,38,"No","No",NA,"No",NA,"Male","No","Yes","hospital",1.266666667,NA,"tumor_free",53.71995923,2
+61,1,-27,1696,-22472,"Not Hispanic Or Latino","3/16/2012",0.0524,"No","Yes","Yes",0.2949,0,52,"No","No","white","No",-20,"Male","No","Yes","hospital",3.1,-44,"tumor_free",55.75829306,1
+62,1,NA,2450,-22843,"Not Hispanic Or Latino","3/16/2012",0.0142,"No","Yes","Yes",0.2931,0,26,NA,"No","white","No",NA,"Male","No","Yes","hospital",0.833333333,NA,"tumor_free",80.5470625,1
+59,0,NA,2089,-21721,NA,"10/29/2013",1e-04,"No","Yes","Yes",0.3085,0.03,15,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.5,NA,"tumor_free",68.67869941,1
+68,1,-9,1515,-24936,"Not Hispanic Or Latino","3/15/2012",0.082,"No","Yes","Yes",0.2995,0,34,"No","No","white","No",-22,"Male","No","Yes","hospital",2.266666667,-4,"tumor_free",49.80767334,1
+51,0,-31,2048,-18723,"Not Hispanic Or Latino","3/14/2012",0.0335,"No","Yes","Yes",0.2905,0.01,74,"No","No","white","Yes",-18,"Male","No","Yes","hospital",4.233333333,-36,"tumor_free",67.33076898,1
+58,0,-27,1542,-21221,"Not Hispanic Or Latino","3/14/2012",0,"No","Yes","Yes",0.2785,0,5,"No","No","white","No",-20,"Male","No","Yes","hospital",0.333333333,-30,"tumor_free",50.69533485,1
+55,3,NA,2066,-20403,NA,"10/29/2013",0.0579,"No","Yes","Yes",0.3244,0,22,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.733333333,NA,"tumor_free",67.92254332,1
+60,2,-37,1434,-22010,"Not Hispanic Or Latino","3/14/2012",0.0021,"No","Yes","Yes",0.2889,0,24,"No","No","white","No",-22,"Male","No","Yes","hospital",1.566666667,-42,"tumor_free",47.14468883,1
+61,1,-33,1415,-22565,"Not Hispanic Or Latino","3/13/2012",0.0515,"No","Yes","Yes",0.2999,0,32,"No","No","white","No",-22,"Male","No","Yes","hospital",1.066666667,-28,"tumor_free",46.52003814,1
+57,2,NA,1443,-21149,"Not Hispanic Or Latino","3/13/2012",0.0786,"No","Yes","Yes",0.2891,0.03,25,"Yes","No","white","No",NA,"Male","No","Yes","hospital",1.366666667,NA,"tumor_free",47.44057599,1
+64,1,-13,1378,-23480,"Not Hispanic Or Latino","3/9/2012",0.0845,"No","Yes","Yes",0.2953,0,45,"No","No","white","No",-12,"Male","No","Yes","hospital",2,-12,"tumor_free",45.30361311,1
+72,2,-27,1198,-26603,"Not Hispanic Or Latino","3/9/2012",0.0368,"No","Yes","Yes",0.2914,0,21,"No","Yes","white","No",-20,"Male","No","Yes","hospital",1.4,-46,"tumor_free",39.38586974,1
+71,0,-29,1363,-26207,"Not Hispanic Or Latino","3/9/2012",0.0142,"No","Yes","Yes",0.2934,0,25,"No","No","white","No",-22,"Male","No","Yes","hospital",1.633333333,-24,"tumor_free",44.81046783,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+55,1,NA,1215,-20238,"Not Hispanic Or Latino","3/7/2012",0.0878,"No","Yes","Yes",0.2823,0,31,"No","No","white","No",NA,"Male","No","Yes","hospital",1.033333333,NA,"tumor_free",39.94476773,1
+52,0,-35,1156,-19149,"Not Hispanic Or Latino","3/7/2012",0,"No","Yes","Yes",0.2935,0,1,"No","No","white","No",-18,"Male","No","Yes","hospital",0.033333333,-48,"tumor_free",38.00506296,1
+58,3,-27,1226,-21365,"Not Hispanic Or Latino","3/6/2012",0.0138,"No","Yes","Yes",0.3089,0,28,"No","No","white","No",-20,"Male","No","Yes","hospital",0.933333333,-26,"tumor_free",40.3064076,1
+68,7,NA,811,-24887,"Not Hispanic Or Latino","3/6/2012",0.1457,"No","Yes","Yes",0.3311,0.06,21,"No","No","white","No",NA,"Male","No","Yes","hospital",1.4,NA,"tumor_free",26.6627215,1
+61,3,-11,958,-22419,"Not Hispanic Or Latino","3/5/2012",0.1123,"No","Yes","Yes",0.2984,0,48,"No","No","white","No",-24,"Male","No","Yes","hospital",1.6,-10,"tumor_free",31.49554525,1
+54,2,-25,1155,-19879,"Not Hispanic Or Latino","3/5/2012",9e-04,"No","Yes","Yes",0.2901,0,22,"No","No",NA,"No",-22,"Male","No","Yes","hospital",0.733333333,-38,"tumor_free",37.97218661,1
+68,2,NA,1778,-25126,NA,"10/29/2013",0.0722,"No","Yes","Yes",0.2984,0.01,23,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.766666667,NA,"tumor_free",58.45415393,1
+53,1,-33,765,-19620,"Not Hispanic Or Latino","3/2/2012",0.0537,"No","Yes","Yes",0.3033,0,23,"No","No","white","No",-18,"Male","No","Yes","hospital",1.5,-50,"tumor_free",25.15040931,1
+66,0,-37,830,-24399,"Not Hispanic Or Latino","3/2/2012",0,"No","Yes","Yes",0.2929,0,9,"No","No","white","No",-18,"Male","No","Yes","hospital",0.6,-34,"tumor_free",27.28737219,1
+61,1,NA,1726,-22602,"Not Hispanic Or Latino","3/21/2012",0.0874,"No","Yes","Yes",0.2946,0.04,34,"No","No","white","No",NA,"Male","No","Yes","hospital",2.233333333,NA,"tumor_free",56.74458362,1
+53,0,NA,1952,-19568,NA,"10/29/2013",0.0109,"No","Yes","Yes",0.3274,0,19,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.633333333,NA,"tumor_free",44.12006444,2
+66,20,-13,1543,-24388,"Not Hispanic Or Latino","3/20/2012",0.2884,"No","Yes","Yes",0.2846,0.04,32,"No","No","white","No",-24,"Male","No","Yes","hospital",2.133333333,-8,"tumor_free",50.7282112,1
+48,0,NA,1610,-17538,NA,"5/14/2014",0.0096,"No","Yes","Yes",0.3225,0,20,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.666666667,NA,"tumor_free",52.93092678,1
+66,4,-17,1185,-24187,NA,"5/31/2012",0.0311,"No","Yes","Yes",0.3182,0,34,"No","No",NA,"No",-18,"Male","No","Yes","hospital",1.133333333,-26,"tumor_free",38.95847717,1
+58,1,-15,849,-21276,NA,"5/31/2012",1e-04,"No","Yes","Yes",0.3314,0,33,"No","No",NA,"No",-20,"Male","No","Yes","hospital",1.1,-18,"tumor_free",27.91202288,1
+52,14,-21,942,-19216,NA,"5/31/2012",0.189,"No","Yes","Yes",0.3153,0.02,20,"No","No",NA,"No",-18,"Male","No","Yes","hospital",0.666666667,-28,"tumor_free",30.96952362,1
+49,0,-21,1078,-18033,NA,"5/31/2012",0.0051,"No","Yes","Yes",0.3325,0,8,"No","No",NA,"No",-20,"Male","No","Yes","hospital",0.266666667,-42,"tumor_free",35.4407075,1
+44,7,-19,857,-16269,NA,"5/31/2012",1e-04,"No","Yes","Yes",0.3357,0,12,"No","No",NA,"No",-20,"Male","No","Yes","hospital",0.4,-28,"tumor_free",28.1750337,1
+64,1,NA,994,-23481,NA,"5/31/2012",0.0583,"No","Yes","Yes",0.3311,0,33,"No","No",NA,"No",NA,"Male","No","Yes","hospital",1.066666667,NA,"tumor_free",32.67909393,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+60,0,NA,941,-22039,NA,"11/26/2013",0,"No","Yes","Yes",0.3129,0,5,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.166666667,NA,"tumor_free",30.93664727,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+63,0,-33,601,NA,"Not Hispanic Or Latino","3/29/2012",0.0058,"No","Yes","Yes",0.2898,0,30,"No","No","white","No",-18,"Male","No","Yes","research_centers",1,-36,"tumor_free",19.75868758,1
+64,2,-27,2115,-23636,"Not Hispanic Or Latino","4/9/2012",0.0626,"No","Yes","Yes",0.2945,0.01,49,"No","No",NA,"No",-18,"Male","No","Yes","research_centers",1.633333333,-34,"tumor_free",69.53348457,1
+69,6,-27,1985,-25402,"Not Hispanic Or Latino","4/10/2012",0.2282,"No","Yes","Yes",0.3139,0,30,"No","No","white","No",-18,"Male","No","Yes","research_centers",1,-24,"tumor_free",65.2595588,1
+66,0,-27,1106,-24243,"Not Hispanic Or Latino","4/9/2012",0.1135,"No","Yes","Yes",0.2875,0.05,32,"Yes","No","white","No",-20,"Male","No","Yes","research_centers",1.066666667,-30,"tumor_free",29.39145872,2
+60,0,-33,440,-22129,"Not Hispanic Or Latino","4/10/2012",0.0422,"No","Yes","Yes",0.3354,0,16,"No","No","white","No",-14,"Male","Yes","No","research_centers",0.533333333,-36,"tumor_free",14.4655949,1
+74,0,-21,868,-27343,"Not Hispanic Or Latino","4/10/2012",0.0743,"No","Yes","Yes",0.3196,0,28,"No","No","white","No",-20,"Male","Yes","No","research_centers",0.933333333,-26,"tumor_free",28.53667357,1
+62,2,-33,1221,-22768,"Not Hispanic Or Latino","4/11/2012",0.0483,"No","Yes","Yes",0.3293,0.6,21,"No","No","white","No",-22,"Male","No","Yes","research_centers",0.7,-28,"tumor_free",40.14202584,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+53,13,-19,1219,-19699,"Not Hispanic Or Latino","4/10/2012",0.1697,"No","Yes","Yes",0.3531,0,35,"Yes","No","white","No",-4,"Male","Yes","No","research_centers",1.166666667,-20,"tumor_free",5.588979847,2
+50,2,-29,1001,-18577,"Not Hispanic Or Latino","10/6/2011",0.0527,"No","Yes","Yes",0.3156,0.07,23,"No","No","white","No",-16,"Male","Yes","No","research_centers",0.766666667,-20,"tumor_free",32.90922839,1
+66,0,-37,939,-24278,NA,"10/6/2011",0.047,"No","Yes","Yes",0.3442,0,33,"No","No","white","No",-14,"Male","Yes","No","research_centers",1.1,-46,"tumor_free",30.87089457,1
+66,2,-31,1161,-24324,"Not Hispanic Or Latino","4/11/2012",0.1165,"No","Yes","Yes",0.3381,0,23,"Yes","No","white","No",-20,"Male","Yes","No","research_centers",0.766666667,-38,"tumor_free",25.18328566,2
+59,1,-31,1103,-21703,"Not Hispanic Or Latino","4/11/2012",0.1245,"No","Yes","Yes",0.3035,0,19,"No","No","white","No",-18,"Male","No","Yes","research_centers",0.666666667,-34,"tumor_free",36.2626163,1
+55,1,-25,1090,-20122,NA,"4/11/2012",1e-04,"No","Yes","Yes",0.326,0.09,18,"No","No",NA,"No",-22,"Male","No","Yes","research_centers",0.6,-38,"tumor_free",35.83522372,1
+58,0,NA,964,-21195,"Not Hispanic Or Latino","3/29/2012",0.0275,"No","Yes","Yes",0.3261,0,35,"Yes","No","white","No",NA,"Male","Yes","No","research_centers",2.233333333,NA,"tumor_free",13.80806786,2
+59,0,-35,717,-21883,"Not Hispanic Or Latino","4/11/2012",2e-04,"No","Yes","Yes",0.3044,0.98,17,"No","No","white","No",-22,"Male","Yes","No","research_centers",1.133333333,-44,"tumor_free",23.57234441,1
+65,3,NA,721,-24078,"Not Hispanic Or Latino","4/11/2012",0.1515,"No","Yes","Yes",0.3504,0,25,"No","No","white","No",NA,"Male","Yes","No","research_centers",1.6,NA,"tumor_free",23.70384982,1
+52,0,-31,748,-19188,"Not Hispanic Or Latino","4/12/2012",0.0652,"No","Yes","Yes",0.3271,0,31,"No","No","white","Yes",-18,"Male","Yes","No","research_centers",2.033333333,-48,"tumor_free",24.59151133,1
+60,1,-41,792,-22072,"Not Hispanic Or Latino","4/12/2012",0.0414,"No","Yes","Yes",0.3133,0,23,"No","Yes","white","No",-20,"Male","Yes","No","research_centers",0.766666667,-44,"tumor_free",26.03807082,1
+70,0,-35,724,-25688,"Not Hispanic Or Latino","4/20/2012",0.0318,"No","Yes","Yes",0.3303,0,48,"No","No","white","No",-18,"Male","Yes","No","research_centers",1.6,-36,"tumor_free",23.80247888,1
+50,0,-35,522,-18580,"Not Hispanic Or Latino","4/20/2012",0.0066,"No","Yes","Yes",0.3058,0.08,17,"No","No","white","No",-22,"Male","Yes","No","research_centers",0.566666667,-38,"tumor_free",17.16145577,1
+61,0,NA,782,-22366,"Not Hispanic Or Latino","4/20/2012",0.0251,"No","Yes","Yes",0.3542,0.06,36,"No","No","white","No",NA,"Male","Yes","No","research_centers",2.233333333,NA,"tumor_free",25.7093073,1
+52,0,NA,928,-19207,NA,"6/20/2012",0.0016,"No","Yes","No",0.3051,0,17,"No","No",NA,"Yes",NA,"Male","Yes","No","research_centers",0.566666667,NA,"tumor_free",30.50925469,1
+66,NA,-31,938,-24391,"Not Hispanic Or Latino","4/20/2012",0,"No","Yes","Yes",0.3309,0,24,"No","No","white","No",-22,"Male","Yes","No","research_centers",0.8,-40,"tumor_free",30.83801821,1
+72,2,-31,747,-26576,"Not Hispanic Or Latino","4/20/2012",0.0386,"No","Yes","Yes",0.3476,0,30,"No","No","white","No",-20,"Male","Yes","No","research_centers",2,-30,"tumor_free",24.55863497,1
+48,0,-29,589,-17673,NA,"7/8/2012",0.0083,"No","Yes","Yes",0.3019,0,17,"No","No",NA,"No",-18,"Male","Yes","No","research_centers",0.566666667,-36,"tumor_free",19.36417135,1
+58,5,-21,682,-21428,NA,"6/17/2012",0.0667,"No","Yes","Yes",0.31,0.01,98,"No","No",NA,"No",-18,"Male","Yes","No","research_centers",3.266666667,-30,"tumor_free",22.42167209,1
+53,2,-35,860,-19598,NA,"6/13/2012",0.0635,"No","Yes","Yes",0.3097,0,22,"No","No",NA,"No",-20,"Male","Yes","No","research_centers",0.733333333,-40,"tumor_free",28.27366275,1
+56,NA,-29,847,-20703,NA,"6/20/2012",0,"No","Yes","Yes",0.2544,1.57,19,"No","No",NA,"No",-16,"Male","Yes","No","research_centers",0.633333333,-30,"tumor_free",27.84627018,1
+50,0,NA,924,-18309,NA,"6/20/2012",0.0034,"No","Yes","No",0.2961,0,45,"No","No",NA,"No",NA,"Male","Yes","No","research_centers",1.5,NA,"tumor_free",30.37774929,1
+48,0,-27,546,-17874,NA,"6/13/2012",0.0679,"No","Yes","Yes",0.3571,1.06,20,"No","No",NA,"No",-18,"Male","Yes","No","research_centers",0.666666667,-26,"tumor_free",17.95048821,1
+57,1,-23,679,-20946,NA,"6/20/2012",0.0447,"No","Yes","Yes",0.3024,0,29,"No","No",NA,"No",-14,"Male","Yes","No","research_centers",0.966666667,-26,"tumor_free",22.32304304,1
+68,3,-33,61,-24916,NA,"10/15/2013",0.1546,"No","Yes","Yes",0.3221,0.01,31,"No","No",NA,NA,-22,"Male","Yes","No","research_centers",1.033333333,-62,"tumor_free",2.005457474,1
+64,1,NA,67,-23618,NA,"9/19/2013",0.0662,"No","Yes","Yes",0.305,0.04,37,"No","No",NA,NA,NA,"Male","Yes","No","research_centers",1.233333333,NA,"tumor_free",2.202715587,1
+52,2,NA,530,-19298,NA,"9/19/2013",0.1062,"No","Yes","Yes",0.303,0.1,25,"No","No",NA,"No",NA,"Male","Yes","No","research_centers",0.833333333,NA,"tumor_free",17.42446658,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+60,0,NA,106,-22208,NA,"9/19/2013",0.0048,"No","Yes","Yes",0.2968,0,21,"No","Yes",NA,NA,NA,"Male","Yes","No","research_centers",0.7,NA,"tumor_free",3.484893316,1
+70,NA,NA,44,-25661,NA,"9/19/2013",0.0021,"No","Yes","Yes",0.2947,0.04,24,"No","No",NA,NA,NA,"Male","Yes","No","research_centers",0.8,NA,"tumor_free",1.44655949,1
+55,0,NA,38,-20263,NA,"9/19/2013",0.004,"No","Yes","Yes",0.3096,0,21,"No","No",NA,NA,NA,"Male","Yes","No","research_centers",0.7,NA,"tumor_free",1.249301378,1
+51,1,NA,134,-18779,NA,"9/19/2013",0.0408,"No","Yes","Yes",0.3298,0,23,"No","No",NA,NA,NA,"Male","Yes","No","research_centers",0.766666667,NA,"tumor_free",4.405431173,1
+62,0,-31,150,-22756,NA,"3/28/2014",0.0041,"No","Yes","Yes",0.3337,0,30,"No","No",NA,NA,-18,"Male","Yes","No","research_centers",1,-26,"tumor_free",4.931452806,1
+61,2,-29,775,-22465,NA,"3/28/2014",0.0414,"No","Yes","Yes",0.314,0,26,"No","No",NA,"No",-24,"Male","Yes","No","research_centers",0.866666667,-24,"tumor_free",25.47917283,1
+68,0,-33,573,-25137,NA,"3/28/2014",0.0108,"No","Yes","Yes",0.3278,0,21,"No","No",NA,"No",-22,"Male","Yes","No","research_centers",0.7,-42,"tumor_free",18.83814972,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+55,0,NA,2684,-20133,"Not Hispanic Or Latino","2/21/2012",9e-04,"No","Yes","Yes",0.352,0,28,"No","No","white","No",NA,"Male","No","Yes","research_centers",0.933333333,NA,"tumor_free",88.24012888,1
+58,3,-23,2522,-21199,"Not Hispanic Or Latino","2/21/2012",0.0428,"No","Yes","Yes",0.3233,0,26,"No","No","white","No",-20,"Male","No","Yes","research_centers",0.866666667,-22,"tumor_free",82.91415985,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+47,0,-27,1218,-17167,NA,"6/6/2012",0.034,"No","Yes","Yes",0.3208,0.04,18,"No","No",NA,"No",-22,"Male","Yes","No","hospital",0.6,-38,"tumor_free",40.04339679,1
+68,0,NA,1004,-24908,NA,"8/16/2013",0.0084,"No","Yes","Yes",0.2956,0.05,26,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.866666667,NA,"tumor_free",33.00785745,1
+54,1,NA,770,-20034,NA,"8/16/2013",0.0606,"No","Yes","Yes",0.3081,0.04,25,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.833333333,NA,"tumor_free",25.31479107,1
+55,1,NA,941,-20211,NA,"8/16/2013",0.106,"No","Yes","Yes",0.3138,0.03,28,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.933333333,NA,"tumor_free",30.93664727,1
+59,1,NA,839,-21714,NA,"8/16/2013",1e-04,"No","Yes","Yes",0.3032,0.01,14,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.466666667,NA,"tumor_free",27.58325936,1
+77,0,NA,975,-28447,NA,"8/16/2013",2e-04,"No","Yes","Yes",0.3087,0.04,18,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.6,NA,"tumor_free",32.05444324,1
+65,0,NA,910,-23807,NA,"8/16/2013",0,"No","Yes","Yes",0.3073,0.05,14,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.466666667,NA,"tumor_free",29.91748036,1
+63,0,-21,183,-23211,NA,"8/16/2013",0.0056,"No","Yes","Yes",0.3287,0,16,NA,"No",NA,"No",-20,"Male","Yes","No","hospital",0.5,-16,"tumor_free",6.016372423,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+57,NA,-27,849,-20836,NA,"9/12/2013",1e-04,"No","Yes","Yes",0.3194,0,23,"Yes","No",NA,"Yes",-14,"Male","Yes","No","hospital",0.766666667,-30,"tumor_free",20.31758556,2
+53,0,-33,512,-19640,NA,"9/23/2013",0.0036,"No","Yes","Yes",0.3215,0,12,"No","No",NA,"No",-20,"Male","Yes","No","hospital",0.4,-42,"tumor_free",16.83269224,1
+63,0,-33,685,-23240,NA,"1/20/2014",0.0827,"No","Yes","Yes",0.3164,0,21,"No","No",NA,"No",-14,"Male","Yes","No","hospital",0.7,-42,"tumor_free",22.52030115,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+52,0,-27,328,-19299,NA,"1/20/2014",5e-04,"No","Yes","Yes",0.3236,0,23,"No","No",NA,"No",-20,"Male","Yes","No","hospital",0.766666667,-32,"tumor_free",10.78344347,1
+61,0,NA,720,-22338,NA,"1/20/2014",0.0099,"No","Yes","Yes",0.3289,0,15,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.5,NA,"tumor_free",23.67097347,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+57,1,-21,992,-20841,NA,"1/20/2014",0.0351,"No","Yes","Yes",0.3325,0,15,"Yes","No",NA,"No",-20,"Male","Yes","No","hospital",0.5,-22,"tumor_free",14.23546043,2
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+59,0,NA,825,-21656,NA,"8/14/2014",6e-04,"No","Yes","Yes",0.3409,0,26,"No","No",NA,"No",NA,"Male","Yes","No","hospital",0.866666667,NA,"tumor_free",27.12299043,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+71,NA,NA,212,-26023,NA,"4/9/2014",NA,"No","Yes","No",0.3015,0.11,35,"No","No",NA,"No",NA,"Male","No","Yes","hospital",1.166666667,NA,"tumor_free",6.969786633,1
+65,16,NA,323,-23741,NA,"3/15/2013",0.232,"No","Yes","Yes",0.3023,0,22,"Yes","No",NA,"No",NA,"Male","No","Yes","hospital",0.733333333,NA,"tumor_free",10.61906171,1
+66,0,-25,321,-24285,NA,"2/6/2015",0.0525,"No","Yes","Yes",0.3289,0,22,"No","No",NA,"No",-18,"Male","Yes","No","hospital",0.733333333,-22,"tumor_free",10.55330901,1
+53,1,-17,1237,-19662,NA,"2/1/2015",0.0641,"No","Yes","Yes",0.3236,0,19,"No","Yes",NA,"No",-18,"Male","Yes","No","hospital",0.633333333,-20,"tumor_free",40.66804747,1
+66,1,-27,386,-24299,NA,"2/1/2015",0.1271,"No","Yes","Yes",0.3121,0,27,"No","No",NA,"No",-22,"Male","Yes","No","hospital",0.9,-30,"tumor_free",12.69027189,1
+55,0,-25,1815,-20392,NA,"7/22/2014",0,"No","Yes","Yes",0.3244,0,20,NA,"No",NA,"No",-22,"Male","No","Yes","hospital",0.666666667,-30,"tumor_free",59.67057895,1
+55,NA,NA,607,-20368,NA,"1/23/2015",2e-04,"No","Yes","No",0.323,0,2,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.066666667,NA,"tumor_free",19.95594569,1
+67,0,-17,665,-24676,NA,"1/23/2015",0.0563,"No","Yes","Yes",0.3208,0,23,"No","No",NA,"No",-22,"Male","No","Yes","hospital",0.766666667,-4,"tumor_free",21.86277411,1
+54,NA,NA,91,-20015,NA,"1/25/2015",NA,"No","Yes","No",0.3311,0,30,"No","No",NA,"No",NA,"Male","No","Yes","hospital",1,NA,"tumor_free",2.991748036,1
+63,2,-29,263,-23367,NA,"1/25/2015",0.0466,"No","Yes","Yes",0.3256,0,22,"No","No",NA,"No",-22,"Male","No","Yes","hospital",0.733333333,-16,"tumor_free",8.646480587,1
+63,3,-11,598,-23208,NA,"1/25/2015",0.074,"No","Yes","Yes",0.3437,0,37,"No","Yes",NA,"No",-22,"Male","No","Yes","hospital",1.266666667,-22,"tumor_free",19.66005852,1
+62,1,-15,270,-22745,NA,"1/25/2015",0.0153,"No","Yes","Yes",0.3307,0,38,"No","No",NA,"No",-20,"Male","No","Yes","hospital",1.266666667,2,"tumor_free",8.876615051,1
+62,NA,-37,352,-22718,NA,"1/25/2015",0,"No","Yes","Yes",0.3344,0,7,"No","No",NA,"No",-26,"Male","No","Yes","hospital",0.233333333,-26,"tumor_free",11.57247592,1
+64,1,NA,3440,-23483,NA,"3/27/2014",0.0273,"No","Yes","Yes",0.5438,7.58,767,NA,"No",NA,"No",NA,"Male","No","Yes","research_centers",25.56666667,NA,"tumor_free",113.094651,1
+55,1,11,2535,-20416,NA,"5/28/2013",0.1551,"No","Yes","Yes",0.3164,0.06,45,"Yes","No",NA,"Yes",-6,"Male","No","Yes","research_centers",1.5,8,"tumor_free",73.41289411,2
+56,2,-17,1968,-20768,NA,"5/28/2013",0.1105,"No","Yes","Yes",0.3093,0,23,"No","No",NA,"Yes",-22,"Male","No","Yes","research_centers",0.766666667,-30,"tumor_free",64.70066082,1
+66,14,-23,2628,-24306,NA,"5/28/2013",0.3999,"No","Yes","Yes",0.31,0,50,NA,"No",NA,"No",-22,"Male","No","Yes","research_centers",1.666666667,-22,"tumor_free",86.39905316,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+57,7,-7,2198,-21063,NA,"3/28/2014",0.2188,"No","Yes","Yes",0.342,0.07,22,NA,"No",NA,"Yes",-14,"Male","No","Yes","research_centers",0.733333333,-22,"tumor_free",72.26222178,1
+54,0,-33,5024,-19974,NA,"3/27/2014",0.0154,"No","Yes","Yes",0.3365,0.02,36,NA,"No",NA,"No",-18,"Male","No","Yes","research_centers",1.2,-48,"tumor_free",165.1707927,1
+56,0,NA,2056,-20547,NA,"3/27/2014",3e-04,"No","Yes","Yes",0.3074,0,32,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",1.066666667,NA,"tumor_free",67.59377979,1
+69,0,NA,2753,-25338,NA,"3/27/2014",0.1139,"No","Yes","Yes",0.3064,0,29,NA,"No",NA,"No",NA,"Male","No","Yes","research_centers",0.966666667,NA,"tumor_free",115.1329848,1
+63,1,-21,2073,-23144,NA,"3/27/2014",0.0884,"No","Yes","Yes",0.3389,0,20,"No","No",NA,"No",-28,"Male","No","Yes","research_centers",0.666666667,-20,"tumor_free",68.15267778,1
+69,9,-17,3447,-25320,NA,"3/27/2014",0.0436,"No","Yes","Yes",0.3151,0,33,"No","No",NA,"No",-16,"Male","No","Yes","research_centers",1.133333333,-16,"tumor_free",113.3247855,1
+68,7,NA,1770,-25026,NA,"3/27/2014",0.2482,"No","Yes","Yes",0.3175,0,37,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",1.266666667,NA,"tumor_free",58.19114311,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+62,1,NA,1610,-22731,NA,"8/19/2014",0.1193,"No","Yes","Yes",0.3307,0,33,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",1.1,NA,"tumor_free",40.01052043,2
+63,2,-19,1775,-23118,NA,"8/28/2014",0.1196,"No","Yes","Yes",0.3338,0,18,"No","No",NA,"No",-20,"Male","No","Yes","research_centers",0.6,-28,"tumor_free",6.805404872,2
+58,2,-31,822,-21192,NA,"8/28/2014",0.0418,"No","Yes","Yes",0.3364,0.05,15,"No","No",NA,"No",-22,"Male","No","Yes","research_centers",0.5,-34,"tumor_free",27.02436138,1
+57,1,NA,1054,-20869,NA,"8/19/2014",0.0705,"No","Yes","Yes",0.3206,0,25,NA,"No",NA,NA,NA,"Male","No","Yes","research_centers",0.833333333,NA,"tumor_free",34.65167505,1
+60,0,NA,1754,-22220,NA,"8/28/2014",0.0642,"No","Yes","Yes",0.3325,0,42,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",1.4,NA,"tumor_free",36.95301969,2
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+62,1,-21,899,-22830,NA,"8/28/2014",0.0843,"No","Yes","Yes",0.3256,0.01,28,"Yes","Yes",NA,"No",-18,"Male","No","Yes","research_centers",0.933333333,-14,"tumor_free",9.6656475,2
+55,0,-13,3096,-20337,NA,"8/18/2014",0.1006,"No","Yes","Yes",0.3281,0,32,NA,"No",NA,"No",-16,"Male","No","Yes","research_centers",1.066666667,-20,"tumor_free",101.7851859,1
+58,0,-21,668,-21499,NA,"8/18/2014",0.061,"No","Yes","Yes",0.3292,0,23,"No","No",NA,"No",-16,"Male","No","Yes","research_centers",0.766666667,-28,"tumor_free",21.96140316,1
+55,2,NA,2002,-20256,NA,"8/18/2014",0.0233,"No","Yes","No",0.317,0,15,"Yes","No",NA,"No",NA,"Male","No","Yes","research_centers",0.5,NA,"tumor_free",35.76947102,2
+69,2,-21,967,-25546,NA,"8/18/2014",0.1017,"No","Yes","Yes",0.3249,0,16,"No","No",NA,"Yes",-16,"Male","No","Yes","research_centers",0.533333333,-24,"tumor_free",31.79143242,1
+61,0,-13,1001,-22295,NA,"8/18/2014",0.0643,"No","Yes","Yes",0.3312,0,36,"Yes","No",NA,"Yes",-26,"Male","No","Yes","research_centers",1.2,0,"tumor_free",30.90377092,2
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+70,2,-23,2107,-25851,NA,"8/18/2014",0.2165,"No","Yes","Yes",0.324,0,49,"No","No",NA,"No",-20,"Male","No","Yes","research_centers",1.633333333,-28,"tumor_free",69.27047375,1
+55,6,-19,2505,-20266,NA,"8/19/2014",0.2051,"No","Yes","Yes",0.3341,0,30,"No","No",NA,"No",-22,"Male","No","Yes","research_centers",1,-32,"tumor_free",82.35526186,1
+50,1,-25,2013,-18560,NA,"8/19/2014",0.0842,"No","Yes","Yes",0.3267,0,20,"No","No",NA,"No",-12,"Male","No","Yes","research_centers",0.666666667,-36,"tumor_free",66.18009666,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+56,14,-11,2052,-20594,NA,"8/28/2014",0.4633,"No","Yes","Yes",0.3476,0.14,28,NA,"No",NA,"No",0,"Male","No","Yes","research_centers",0.933333333,-8,"tumor_free",67.46227439,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+55,1,NA,1915,-20425,NA,"8/18/2014",0.0571,"No","Yes","No",0.3305,0,25,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",0.833333333,NA,"tumor_free",62.95821416,1
+55,3,-27,493,-20357,NA,"12/10/2013",0,"No","Yes","Yes",0.3205,0,14,"No","No",NA,"No",-22,"Male","Yes","No","university",0.466666667,-24,"tumor_free",16.20804156,1
+62,1,NA,643,-22785,NA,"12/10/2013",0.0483,"No","Yes","Yes",0.3313,0,24,"No","No",NA,"No",NA,"Male","Yes","No","university",0.8,NA,"tumor_free",21.13949436,1
+53,0,-31,384,-19642,NA,"12/10/2013",0,"No","Yes","Yes",0.312,0,6,"No","No",NA,"No",-18,"Male","Yes","No","university",0.2,-42,"tumor_free",12.62451918,1
+70,0,-17,400,-25585,NA,"12/10/2013",0.0558,"No","Yes","Yes",0.3164,0.04,29,NA,"No",NA,"No",-22,"Male","Yes","No","university",0.966666667,-32,"tumor_free",13.15054082,1
+54,NA,NA,763,-20064,NA,"12/10/2013",1e-04,"No","Yes","Yes",0.2994,0.07,3,"No","No",NA,"Yes",NA,"Male","Yes","No","university",0.1,NA,"tumor_free",25.08465661,1
+56,5,-13,573,-20474,NA,"12/10/2013",0.1838,"No","Yes","Yes",0.3095,0.11,27,"No","No",NA,"No",-4,"Male","Yes","No","university",0.9,-14,"tumor_free",18.83814972,1
+59,3,NA,173,-21846,NA,"7/28/2014",0.0697,"No","Yes","Yes",0.3368,0.05,22,NA,"No",NA,"No",NA,"Male","No","Yes","university",0.733333333,NA,"tumor_free",5.687608903,1
+64,2,NA,97,-23710,NA,"8/21/2013",0.1072,"No","Yes","Yes",0.3107,0.01,20,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.666666667,NA,"tumor_free",3.189006148,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+61,0,NA,4264,-22286,NA,"8/21/2013",0.0354,"No","Yes","Yes",0.3265,0,20,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.666666667,NA,"tumor_free",140.1847651,1
+53,2,NA,3716,-19564,NA,"8/21/2013",0.0565,"No","Yes","Yes",0.3272,0,26,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.866666667,NA,"tumor_free",122.1685242,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+60,0,-33,551,-22185,NA,"1/24/2014",0.0287,"No","Yes","Yes",0.325,0,22,"No","No",NA,"No",-20,"Male","Yes","No","biotech_pharma",0.733333333,-40,"tumor_free",18.11486997,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+62,1,NA,610,-22872,NA,"3/28/2014",0.1572,"No","Yes","Yes",0.34,0,34,"No","No",NA,"Yes",NA,"Male","Yes","No","hospital",1.133333333,NA,"tumor_free",20.05457474,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+54,0,-21,746,-20026,NA,"1/10/2014",0.0429,"No","Yes","Yes",0.3338,0,15,"No","No",NA,"No",-22,"Male","No","Yes","research_centers",0.5,-28,"tumor_free",24.52575862,1
+55,0,NA,189,-20157,NA,"1/10/2014",0.056,"No","Yes","Yes",0.3158,0,16,NA,"No",NA,"No",NA,"Male","No","Yes","research_centers",0.533333333,NA,"tumor_free",6.213630536,1
+62,0,-23,766,-22695,NA,"1/10/2014",0.0175,"No","Yes","Yes",0.3258,0,22,"No","No",NA,"No",-22,"Male","No","Yes","research_centers",0.733333333,-34,"tumor_free",25.18328566,1
+49,2,-19,481,-17945,NA,"1/10/2014",0.0666,"No","Yes","Yes",0.3181,0,29,NA,"No",NA,"No",-20,"Male","No","Yes","research_centers",0.966666667,-22,"tumor_free",15.81352533,1
+60,2,-15,1260,-21916,NA,"1/10/2014",0.1159,"No","Yes","Yes",0.3267,0,34,"No","No",NA,"No",-24,"Male","No","Yes","research_centers",1.133333333,-22,"tumor_free",41.42420357,1
+60,2,-31,1366,-22087,NA,"1/10/2014",0.0606,"No","Yes","Yes",0.3317,0,32,"No","No",NA,"No",-22,"Male","No","Yes","research_centers",1.066666667,-36,"tumor_free",44.90909689,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+71,0,NA,496,-26162,NA,"3/5/2014",0.0399,"No","Yes","Yes",0.3218,0,22,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",0.733333333,NA,"tumor_free",16.30667061,1
+60,4,-9,3631,-22098,NA,"3/26/2014",0.1414,"No","Yes","Yes",0.3341,0.02,26,"No","No",NA,"No",-12,"Male","No","Yes","university",0.866666667,-12,"tumor_free",119.3740343,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+46,2,-29,3333,-16934,NA,"3/26/2014",0.0688,"No","Yes","Yes",0.3195,0,20,"No","No",NA,"No",-14,"Male","No","Yes","university",0.666666667,-30,"tumor_free",109.5768814,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+63,2,-23,2722,-23271,NA,"3/28/2014",0.1284,"No","Yes","Yes",0.3227,0,36,"Yes","No",NA,"Yes",-22,"Male","No","Yes","university",1.2,-22,"tumor_free",81.3032186,2
+67,3,-35,1690,-24608,NA,"3/28/2014",0.0648,"No","Yes","Yes",0.3158,0,20,"No","No",NA,"No",-24,"Male","No","Yes","university",0.666666667,-44,"tumor_free",55.56103495,1
+54,2,-37,1853,-19818,NA,"3/28/2014",0.0953,"No","Yes","Yes",0.3234,0,51,"No","No",NA,"No",-24,"Male","No","Yes","university",1.7,-44,"tumor_free",39.25436434,2
+59,0,-21,2037,-21811,NA,"3/28/2014",0,"No","Yes","Yes",0.3287,0,20,"No","No",NA,"No",-22,"Male","No","Yes","university",0.666666667,-14,"tumor_free",66.96912911,1
+70,16,NA,1365,-25781,NA,"3/31/2014",0.1897,"No","Yes","Yes",0.3318,0,30,"No","No",NA,"Yes",NA,"Male","No","Yes","university",1,NA,"tumor_free",44.87622054,1
+70,2,-33,449,-25593,NA,"3/26/2014",0.0819,"No","Yes","Yes",0.3274,0,26,"No","No",NA,"No",-22,"Male","Yes","No","university",0.866666667,-36,"tumor_free",14.76148207,1
+65,5,NA,1383,-23999,NA,"3/7/2014",0.1748,"No","Yes","Yes",0.332,0,37,"Yes","No",NA,"Yes",NA,"Male","No","Yes","research_centers",1.233333333,NA,"tumor_free",45.46799487,1
+61,2,NA,979,-22571,NA,"3/7/2014",4e-04,"No","Yes","Yes",0.3343,0,23,"No","No",NA,"No",NA,"Male","No","Yes","research_centers",0.766666667,NA,"tumor_free",32.18594865,1
+68,0,-31,376,-25090,NA,"10/9/2013",0.0302,"No","Yes","Yes",0.3025,0,21,"No","No",NA,"No",-20,"Male","Yes","No","university",0.7,-32,"tumor_free",12.36150837,1
+67,3,NA,1127,NA,NA,"3/6/2014",0.0835,"No","Yes","Yes",0.3173,0,29,"No","No",NA,"No",NA,"Male","No","Yes","university",0.966666667,NA,"tumor_free",37.05164875,1
+51,0,-13,1461,NA,NA,"3/6/2014",0.092,"No","Yes","Yes",0.3336,0,20,"No","No",NA,"No",-20,"Male","No","Yes","university",0.666666667,-6,"tumor_free",48.03235033,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+62,0,-31,1461,NA,NA,"5/21/2014",3e-04,"No","Yes","Yes",0.3393,0,17,"No","No",NA,"Yes",-22,"Male","No","Yes","university",0.566666667,-44,"tumor_free",48.03235033,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+51,6,NA,973,NA,NA,"5/21/2014",0.3074,"No","Yes","Yes",0.3309,0.03,61,"Yes","No",NA,NA,NA,"Male","No","Yes","university",2.033333333,NA,"tumor_free",31.98869054,1
+75,2,NA,972,-27703,NA,"5/8/2014",0.0691,"No","Yes","Yes",0.3372,0,25,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.833333333,NA,"tumor_free",31.95581418,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+66,1,NA,1259,-24320,NA,"5/13/2014",0.1054,"No","Yes","Yes",0.3238,0.03,30,"No","No",NA,"No",NA,"Male","No","Yes","hospital",1.033333333,NA,"tumor_free",41.39132722,1
+61,2,NA,1124,-22643,NA,"5/13/2014",0.0989,"No","Yes","Yes",0.3205,0,24,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.8,NA,"tumor_free",4.306802117,2
+65,0,NA,1576,-23958,NA,"5/13/2014",0,"No","Yes","Yes",0.3238,0.03,1,"No","No",NA,"No",NA,"Male","No","Yes","hospital",0.033333333,NA,"tumor_free",51.81313082,1
+67,1,-31,770,-24623,NA,"1/26/2015",0.0652,"No","Yes","Yes",0.3204,0,24,"No","No",NA,"Yes",-20,"Male",NA,NA,"university",0.8,-42,"tumor_free",25.31479107,1
+65,0,-23,992,-23776,NA,"4/17/2014",0.0468,"No","Yes","Yes",0.3388,0,27,"No","No",NA,"No",-20,"Male","No","Yes","university",0.9,-28,"tumor_free",32.61334122,1
+72,1,NA,526,-26471,NA,"11/13/2014",0.0769,"No","Yes","Yes",0.3279,0,40,"No","No",NA,"No",NA,"Male","No","Yes","university",1.333333333,NA,"tumor_free",17.29296117,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+58,0,-33,1611,-21416,NA,"3/13/2014",0.0091,"No","Yes","Yes",0.3259,0,30,"No","No",NA,"Yes",-22,"Male","No","Yes","biotech_pharma",1,-40,"tumor_free",52.96380314,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+66,7,-11,1482,-24121,NA,"3/13/2014",0.2811,"No","Yes","Yes",0.3376,0.02,34,"Yes","No",NA,"Yes",-2,"Male","No","Yes","biotech_pharma",1.133333333,-26,"tumor_free",48.42686656,2
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+69,0,-29,NA,-25395,NA,"4/25/2014",0.0699,"No","Yes","Yes",0.3319,0,32,"No","No",NA,"No",-24,"Male","No","Yes","biotech_pharma",1.066666667,-32,"tumor_free",28.76680804,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+74,13,-15,987,-27033,NA,"4/25/2014",0.2142,"No","Yes","Yes",0.3229,0,39,"No","No",NA,"No",-22,"Male","No","Yes","biotech_pharma",1.3,-12,"tumor_free",32.44895946,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+65,2,-33,308,-23980,NA,"5/21/2014",0.0672,"No","Yes","Yes",0.3215,0,26,"No","No",NA,"Yes",-18,"Male","No","Yes","university",0.866666667,-50,"tumor_free",10.12591643,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+71,4,NA,355,-26055,NA,"7/17/2014",0.4797,"No","Yes","Yes",0.3249,0,36,"No","No",NA,"No",NA,"Male","No","Yes","university",1.2,NA,"tumor_free",11.67110497,1
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+72,11,NA,378,-26377,NA,"7/18/2014",0.3341,"No","Yes","Yes",0.3418,0.02,30,"No","No",NA,"No",NA,"Male","No","Yes","university",1,NA,"tumor_free",12.42726107,1
+60,4,NA,370,-21942,NA,"7/18/2014",0.1869,"No","Yes","Yes",0.3084,0,33,"No","No",NA,"Yes",NA,"Male","No","Yes","university",1.066666667,NA,"tumor_free",12.16425026,1
+55,2,NA,410,-20428,NA,"7/18/2014",0.167,"No","Yes","Yes",0.3249,0,25,"No","No",NA,"No",NA,"Male","No","Yes","university",0.833333333,NA,"tumor_free",13.47930434,1
+73,7,NA,132,-26697,NA,"7/18/2014",0.2181,"No","Yes","Yes",0.3079,0,83,"No","No",NA,"No",NA,"Male","No","Yes","university",2.766666667,NA,"tumor_free",4.339678469,1
