@@ -1,0 +1,237 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+    fig_caption: true
+    latex_engine: xelatex
+    number_sections: true
+    toc: true
+    toc_depth: 4
+title: "SURVIVAL ANALYSIS - TCGA PRAD CANCER"
+author: 
+- Kelvin Ofori-Minta
+- University of Texas at El Paso (UTEP) 
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontsize: 11pt
+spacing: single
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{amssymb, bm}
+- \usepackage{amsfonts}
+- \usepackage{amsthm}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhf{}
+- \rhead{Collaborative Research}
+- \lhead{TCGA - Clinical Data}
+- \cfoot{\thepage}
+- \usepackage{algorithm}
+- \usepackage[noend]{algpseudocode}
+---
+
+```{=tex}
+\newpage
+\section{Loading and Cleaning Data}
+```
+```{r, warning=FALSE, message=FALSE}
+data <- read.csv("neoplasm.status_withtumor.csv", header = T, stringsAsFactors = F,
+              na.strings = "NA")
+#selecting columns of interest
+#data<-s[, c(4,7,8,12,13,19,20,21,23,27:32,44:47,50,53:55,58,62,40:42)]
+# write.csv(data,"C://Users//Kelvin//Desktop//Spring 2022//research with Dr. Leung//survival//selected_columns.csv")
+```
+
+\subsection{Inspecting dataframe for missing values}
+
+```{r, warning=FALSE, message=FALSE}
+require(inspectdf)
+show_plot(inspect_na(data))
+missing = inspect_na(data)
+missing[ , 3] = round(missing[ ,3], 2)
+names(missing) = c("variable", "count", "proportion")
+require(kableExtra)
+# missing<-as.matrix.data.frame(missing)
+kable(missing)
+# as.data.frame.matrix(missing)
+# kable(as.da(missing))
+```
+
+\subsubsection{Rename long variables}
+
+```{r}
+"TMB-H means that the tumor has a high number of mutations. Doctors have found that
+certain immunotherapy drugs are more likely to work
+against TMB-H cancers. This is because the immune
+system may be able to find and attack cancer cells with high
+TMB more easily."
+
+
+"Person neoplasm status...... You are correct, IMO:  tumor free does not mean normal, but rather whether (or not) the tumor (neoplasm) continues to be present.  It is a statement about the progression (or not) of the original disease; whereas normal is a statement that there was no disease to begin with."
+```
+
+```{=tex}
+\newpage
+\subsubsection{Re-coding variables}
+```
+```{r, warning=FALSE, message=FALSE}
+
+# newdata$Neodjuvant_Therapy_type <- factor(newdata$Neodjuvant_Therapy_type,
+#                                     levels=c("No","Yes"),
+#                                     labels=c("No","Yes")) all were "no"
+
+
+data$In.PanCan.Pathway.Analysis<-factor(data$In.PanCan.Pathway.Analysis,
+                                           levels=c("No","Yes"),
+                                           labels=c("No","Yes"))
+
+
+data$Prior.Diagnosis<-factor(data$Prior.Diagnosis, 
+                                levels=c("No","Yes"),
+                                labels=c("No","Yes"))
+  
+
+data$tissue_source.site<-factor(data$tissue_source.site,
+                                   levels = c("university","Biotech & Pharma","Hospital","Research center"),
+                                                          labels=c("university","biotech_pharma","hospital","research_centers"))
+
+
+data$New_Tumor_event <- factor(data$New_Tumor_event,
+                                    levels=c("No","Yes"),
+                                    labels=c("No","Yes"))
+
+
+data$Radiation.Therapy <- factor(data$Radiation.Therapy,
+                                    levels=c("No","Yes"),
+                                    labels=c("No","Yes"))
+
+#all white , no adjuvant therapy
+str(data)
+```
+
+```{=tex}
+\newpage
+\section{Generate Random subsets from entire data}
+```
+```{r, warning=FALSE, message=FALSE}
+ndata<-data
+set.seed(1)
+library(dplyr)
+# Printing random rows as subset 
+ sample_data1<-sample_n(ndata, 100) #100   
+ sample_data2<-sample_n(ndata, 90) #90
+ sample_data3<-sample_n(ndata, 90) #90
+ sample_data4<-sample_n(ndata, 80) #80
+```
+
+```{=tex}
+\newpage
+\section{KM Curve - Survival probability with Radiation Therapy of 100 sampled subjects}
+```
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+
+fit2a<-survfit(Surv(sample_data1$progression_time, sample_data1$progression_status==2)~
+                   sample_data1$Radiation.Therapy, data=sample_data1)
+print(fit2a)
+summary(fit2a)$table
+```
+
+```{r}
+ggsurvplot(fit2a,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+```{=tex}
+\newpage
+\section{KM Curve - Survival probability with Radiation Therapy of 90 sampled subjects}
+```
+```{r, warning=FALSE, message=FALSE}
+fit2b <- survfit(Surv(sample_data2$progression_time,sample_data2$progression_status==2) ~
+                   sample_data2$Radiation.Therapy, data=sample_data2)
+print(fit2b)
+
+summary(fit2b)$table
+```
+
+```{r}
+ggsurvplot(fit2b,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+```{=tex}
+\newpage
+\section{KM Curve - Survival probability with Radiation Therapy of 90 sampled subjects}
+```
+```{r, warning=FALSE, message=FALSE}
+fit2c <- survfit(Surv(sample_data3$progression_time,sample_data3$progression_status==2) ~
+                   sample_data3$Radiation.Therapy, data=sample_data3)
+print(fit2c)
+
+summary(fit2c)$table
+```
+
+```{r}
+ggsurvplot(fit2c,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+
+```{=tex}
+\newpage
+\section{KM Curve - Survival probability with Radiation Therapy of 80 sampled subjects}
+```
+```{r, warning=FALSE, message=FALSE}
+fit2d <- survfit(Surv(sample_data4$progression_time,sample_data4$progression_status==2) ~
+                   sample_data4$Radiation.Therapy, data=sample_data4)
+print(fit2d)
+
+summary(fit2d)$table
+```
+
+```{r}
+ggsurvplot(fit2d,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+```
