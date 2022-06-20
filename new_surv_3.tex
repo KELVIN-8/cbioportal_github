@@ -1,0 +1,600 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={SURVIVAL ANALYSIS - TCGA PRAD CANCER},
+  pdfauthor={Kelvin Ofori-Minta; University of Texas at El Paso (UTEP)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{amsmath}
+\usepackage{amssymb, bm}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Collaborative Research}
+\lhead{TCGA - Clinical Data}
+\cfoot{\thepage}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{SURVIVAL ANALYSIS - TCGA PRAD CANCER}
+\author{Kelvin Ofori-Minta \and University of Texas at El Paso (UTEP)}
+\date{June 11, 2022}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{4}
+\tableofcontents
+}
+\newpage
+\section{Loading and Cleaning Data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"neoplasm.status\_tumorfree.csv"}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T, }\AttributeTok{stringsAsFactors =}\NormalTok{ F,}
+              \AttributeTok{na.strings =} \StringTok{"NA"}\NormalTok{)}
+\CommentTok{\#selecting columns of interest}
+\CommentTok{\#data\textless{}{-}s[, c(4,7,8,12,13,19,20,21,23,27:32,44:47,50,53:55,58,62,40:42)]}
+\CommentTok{\# write.csv(data,"C://Users//Kelvin//Desktop//Spring 2022//research with Dr. Leung//survival//selected\_columns.csv")}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Inspecting dataframe for missing values}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{require}\NormalTok{(inspectdf)}
+\FunctionTok{show\_plot}\NormalTok{(}\FunctionTok{inspect\_na}\NormalTok{(data))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{new_surv_3_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{missing }\OtherTok{=} \FunctionTok{inspect\_na}\NormalTok{(data)}
+\NormalTok{missing[ , }\DecValTok{3}\NormalTok{] }\OtherTok{=} \FunctionTok{round}\NormalTok{(missing[ ,}\DecValTok{3}\NormalTok{], }\DecValTok{2}\NormalTok{)}
+\FunctionTok{names}\NormalTok{(missing) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"variable"}\NormalTok{, }\StringTok{"count"}\NormalTok{, }\StringTok{"proportion"}\NormalTok{)}
+\FunctionTok{require}\NormalTok{(kableExtra)}
+\CommentTok{\# missing\textless{}{-}as.matrix.data.frame(missing)}
+\FunctionTok{kable}\NormalTok{(missing)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r}
+\hline
+variable & count & proportion\\
+\hline
+Race.Category & 276 & 69.00\\
+\hline
+Ethnicity.Category & 271 & 67.75\\
+\hline
+Buffa.Hypoxia.Score & 176 & 44.00\\
+\hline
+Ragnum.Hypoxia.Score & 176 & 44.00\\
+\hline
+Winter.Hypoxia.Score & 176 & 44.00\\
+\hline
+New\_Tumor\_event & 115 & 28.75\\
+\hline
+Aneuploidy.Score & 106 & 26.50\\
+\hline
+Radiation.Therapy & 105 & 26.25\\
+\hline
+Birth.from.Initial.Pathologic.Diagnosis.Date & 91 & 22.75\\
+\hline
+Fraction.Genome.Altered & 90 & 22.50\\
+\hline
+Mutation.Count & 88 & 22.00\\
+\hline
+last\_contact\_from\_.initial\_diagnosis & 87 & 21.75\\
+\hline
+Tissue.Prospective.Collection.Indicator & 87 & 21.75\\
+\hline
+Tissue.Retrospective.Collection.Indicator & 87 & 21.75\\
+\hline
+Diagnosis.Age & 86 & 21.50\\
+\hline
+Form.completion.date & 86 & 21.50\\
+\hline
+Neodjuvant\_Therapy\_type & 86 & 21.50\\
+\hline
+Informed.consent.verified & 86 & 21.50\\
+\hline
+In.PanCan.Pathway.Analysis & 86 & 21.50\\
+\hline
+MSI.MANTIS.Score & 86 & 21.50\\
+\hline
+MSIsensor.Score & 86 & 21.50\\
+\hline
+Prior.Diagnosis & 86 & 21.50\\
+\hline
+Sex & 86 & 21.50\\
+\hline
+tissue\_source.site & 86 & 21.50\\
+\hline
+TMB..nonsynonymous. & 86 & 21.50\\
+\hline
+Neoplasm\_status & 86 & 21.50\\
+\hline
+progression\_time & 86 & 21.50\\
+\hline
+progression\_status & 86 & 21.50\\
+\hline
+\end{tabular}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# as.data.frame.matrix(missing)}
+\CommentTok{\# kable(as.da(missing))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Rename long variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"TMB{-}H means that the tumor has a high number of mutations. Doctors have found that}
+\StringTok{certain immunotherapy drugs are more likely to work}
+\StringTok{against TMB{-}H cancers. This is because the immune}
+\StringTok{system may be able to find and attack cancer cells with high}
+\StringTok{TMB more easily."}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "TMB-H means that the tumor has a high number of mutations. Doctors have found that\ncertain immunotherapy drugs are more likely to work\nagainst TMB-H cancers. This is because the immune\nsystem may be able to find and attack cancer cells with high\nTMB more easily."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"Person neoplasm status...... You are correct, IMO:  tumor free does not mean normal, but rather whether (or not) the tumor (neoplasm) continues to be present.  It is a statement about the progression (or not) of the original disease; whereas normal is a statement that there was no disease to begin with."}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Person neoplasm status...... You are correct, IMO:  tumor free does not mean normal, but rather whether (or not) the tumor (neoplasm) continues to be present.  It is a statement about the progression (or not) of the original disease; whereas normal is a statement that there was no disease to begin with."
+\end{verbatim}
+
+\newpage
+\subsubsection{Re-coding variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# newdata$Neodjuvant\_Therapy\_type \textless{}{-} factor(newdata$Neodjuvant\_Therapy\_type,}
+\CommentTok{\#                                     levels=c("No","Yes"),}
+\CommentTok{\#                                     labels=c("No","Yes")) all were "no"}
+
+
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{In.PanCan.Pathway.Analysis}\OtherTok{\textless{}{-}}\FunctionTok{factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{In.PanCan.Pathway.Analysis,}
+                                           \AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{),}
+                                           \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{))}
+
+
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Prior.Diagnosis}\OtherTok{\textless{}{-}}\FunctionTok{factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Prior.Diagnosis, }
+                                \AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{),}
+                                \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{))}
+  
+
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{tissue\_source.site}\OtherTok{\textless{}{-}}\FunctionTok{factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{tissue\_source.site,}
+                                   \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"university"}\NormalTok{,}\StringTok{"Biotech \& Pharma"}\NormalTok{,}\StringTok{"Hospital"}\NormalTok{,}\StringTok{"Research center"}\NormalTok{),}
+                                                          \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"university"}\NormalTok{,}\StringTok{"biotech\_pharma"}\NormalTok{,}\StringTok{"hospital"}\NormalTok{,}\StringTok{"research\_centers"}\NormalTok{))}
+
+
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{New\_Tumor\_event }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{New\_Tumor\_event,}
+                                    \AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{),}
+                                    \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{))}
+
+
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Radiation.Therapy }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Radiation.Therapy,}
+                                    \AttributeTok{levels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{),}
+                                    \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{,}\StringTok{"Yes"}\NormalTok{))}
+
+\CommentTok{\#all white , no adjuvant therapy}
+\FunctionTok{str}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    400 obs. of  28 variables:
+##  $ Diagnosis.Age                               : int  51 57 47 52 70 NA 69 57 57 56 ...
+##  $ Aneuploidy.Score                            : int  0 0 14 0 2 NA 1 0 1 1 ...
+##  $ Buffa.Hypoxia.Score                         : int  -27 -29 -39 -25 NA NA -25 NA NA NA ...
+##  $ last_contact_from_.initial_diagnosis        : int  621 1701 1373 671 1378 NA 863 1364 1272 615 ...
+##  $ Birth.from.Initial.Pathologic.Diagnosis.Date: int  -18658 -20958 -17365 -19065 -25904 NA -25557 -20866 -21183 -20582 ...
+##  $ Ethnicity.Category                          : chr  NA NA NA NA ...
+##  $ Form.completion.date                        : chr  "3/29/2014" "3/30/2014" "3/29/2014" "3/29/2014" ...
+##  $ Fraction.Genome.Altered                     : num  0.03 0.0211 0.1418 0.0092 0.0756 ...
+##  $ Neodjuvant_Therapy_type                     : chr  "No" "No" "No" "No" ...
+##  $ Informed.consent.verified                   : chr  "Yes" "Yes" "Yes" "Yes" ...
+##  $ In.PanCan.Pathway.Analysis                  : Factor w/ 2 levels "No","Yes": 2 2 2 2 2 NA 2 2 2 2 ...
+##  $ MSI.MANTIS.Score                            : num  0.326 0.329 0.315 0.314 0.336 ...
+##  $ MSIsensor.Score                             : num  0 0 0 0 0.03 NA 0 0 0.06 0.04 ...
+##  $ Mutation.Count                              : int  22 27 39 24 30 NA 34 14 20 21 ...
+##  $ New_Tumor_event                             : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 NA 2 1 1 1 ...
+##  $ Prior.Diagnosis                             : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 NA 1 1 1 1 ...
+##  $ Race.Category                               : chr  NA NA NA NA ...
+##  $ Radiation.Therapy                           : Factor w/ 2 levels "No","Yes": 1 1 2 1 1 NA 1 1 1 1 ...
+##  $ Ragnum.Hypoxia.Score                        : int  -24 -24 -22 -22 NA NA -22 NA NA NA ...
+##  $ Sex                                         : chr  "Male" "Male" "Male" "Male" ...
+##  $ Tissue.Prospective.Collection.Indicator     : chr  "No" "No" "No" "No" ...
+##  $ Tissue.Retrospective.Collection.Indicator   : chr  "Yes" "Yes" "Yes" "Yes" ...
+##  $ tissue_source.site                          : Factor w/ 4 levels "university","biotech_pharma",..: NA NA NA NA NA NA NA NA NA NA ...
+##  $ TMB..nonsynonymous.                         : num  0.7 0.9 1.3 0.8 1 ...
+##  $ Winter.Hypoxia.Score                        : int  -34 -26 -42 -36 NA NA -26 NA NA NA ...
+##  $ Neoplasm_status                             : chr  "tumor_free" "tumor_free" "tumor_free" "tumor_free" ...
+##  $ progression_time                            : num  20.4 55.9 45.1 22.1 45.3 ...
+##  $ progression_status                          : int  1 1 1 1 1 NA 2 1 1 1 ...
+\end{verbatim}
+
+\newpage
+\section{KM Curve - survival probability with Radiation Therapy}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"survival"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"survminer"}\NormalTok{)}
+\NormalTok{ndata}\OtherTok{\textless{}{-}}\NormalTok{data}
+\NormalTok{fit2a }\OtherTok{\textless{}{-}} \FunctionTok{survfit}\NormalTok{(}\FunctionTok{Surv}\NormalTok{(ndata}\SpecialCharTok{$}\NormalTok{progression\_time, ndata}\SpecialCharTok{$}\NormalTok{progression\_status) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ndata}\SpecialCharTok{$}\NormalTok{Radiation.Therapy, }\AttributeTok{data =}\NormalTok{ ndata)}
+\FunctionTok{print}\NormalTok{(fit2a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call: survfit(formula = Surv(ndata$progression_time, ndata$progression_status) ~ 
+##     ndata$Radiation.Therapy, data = ndata)
+## 
+##    105 observations deleted due to missingness 
+##                               n events median 0.95LCL 0.95UCL
+## ndata$Radiation.Therapy=No  268     21     NA      NA      NA
+## ndata$Radiation.Therapy=Yes  27      5   73.4    73.4      NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(fit2a)}\SpecialCharTok{$}\NormalTok{table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                             records n.max n.start events    *rmean *se(rmean)
+## ndata$Radiation.Therapy=No      268   268     268     21 146.80042   4.050186
+## ndata$Radiation.Therapy=Yes      27    27      27      5  68.12697   5.279824
+##                               median  0.95LCL 0.95UCL
+## ndata$Radiation.Therapy=No        NA       NA      NA
+## ndata$Radiation.Therapy=Yes 73.41289 73.41289      NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsurvplot}\NormalTok{(fit2a,}
+          \CommentTok{\#legend.labs=c("tumor\_free", "with\_tumor"),}
+          \AttributeTok{pval =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{conf.int =}\NormalTok{ F,}
+          \AttributeTok{risk.table =} \ConstantTok{TRUE}\NormalTok{, }\CommentTok{\# Add risk table}
+          \AttributeTok{risk.table.col =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change risk table color by groups}
+          \AttributeTok{linetype =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change line type by groups}
+          \AttributeTok{surv.median.line =} \StringTok{"hv"}\NormalTok{, }\CommentTok{\# Specify median survival}
+          \AttributeTok{ggtheme =} \FunctionTok{theme\_bw}\NormalTok{(), }\CommentTok{\# Change ggplot2 theme}
+          \AttributeTok{palette =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#2E9FDF"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{new_surv_3_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#1 {-} censored \& 2{-} progression}
+\CommentTok{\#1 {-} tumor\_free \& 2 with tumor .....neoplasm status }
+\CommentTok{\#1 {-} NO \& 2{-}YES .....TREATMENT CODE}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+\section{KM Curve- survival probability:Censored cases of Radiation therapy}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"survival"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"survminer"}\NormalTok{)}
+
+\NormalTok{fit2b }\OtherTok{\textless{}{-}} \FunctionTok{survfit}\NormalTok{(}\FunctionTok{Surv}\NormalTok{(ndata}\SpecialCharTok{$}\NormalTok{progression\_time, ndata}\SpecialCharTok{$}\NormalTok{progression\_status}\SpecialCharTok{==}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ndata}\SpecialCharTok{$}\NormalTok{Radiation.Therapy, }
+               \AttributeTok{data =}\NormalTok{ ndata)}
+\FunctionTok{print}\NormalTok{(fit2b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call: survfit(formula = Surv(ndata$progression_time, ndata$progression_status == 
+##     1) ~ ndata$Radiation.Therapy, data = ndata)
+## 
+##    105 observations deleted due to missingness 
+##                               n events median 0.95LCL 0.95UCL
+## ndata$Radiation.Therapy=No  268    247   31.5    28.3      36
+## ndata$Radiation.Therapy=Yes  27     22   31.8    28.8      53
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(fit2b)}\SpecialCharTok{$}\NormalTok{table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                             records n.max n.start events   *rmean *se(rmean)
+## ndata$Radiation.Therapy=No      268   268     268    247 38.43101   1.687711
+## ndata$Radiation.Therapy=Yes      27    27      27     22 49.35452   8.646873
+##                               median  0.95LCL  0.95UCL
+## ndata$Radiation.Therapy=No  31.49555 28.27366 36.03248
+## ndata$Radiation.Therapy=Yes 31.79143 28.83256 52.96380
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsurvplot}\NormalTok{(fit2b,}
+          \CommentTok{\#legend.labs=c("tumor\_free", "with\_tumor"),}
+          \AttributeTok{pval =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{conf.int =}\NormalTok{ F,}
+          \AttributeTok{risk.table =} \ConstantTok{TRUE}\NormalTok{, }\CommentTok{\# Add risk table}
+          \AttributeTok{risk.table.col =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change risk table color by groups}
+          \AttributeTok{linetype =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change line type by groups}
+          \AttributeTok{surv.median.line =} \StringTok{"hv"}\NormalTok{, }\CommentTok{\# Specify median survival}
+          \AttributeTok{ggtheme =} \FunctionTok{theme\_bw}\NormalTok{(), }\CommentTok{\# Change ggplot2 theme}
+          \AttributeTok{palette =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#2E9FDF"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{new_surv_3_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#1 {-} censored \& 2{-} progression}
+\CommentTok{\#1 {-} tumor\_free \& 2 with tumor .....neoplasm status }
+\CommentTok{\#1 {-} NO \& 2{-}YES .....TREATMENT CODE}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+\section{KM Curve- survival probability:Censored cases of New tumor event}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"survival"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"survminer"}\NormalTok{)}
+
+\NormalTok{fit2c }\OtherTok{\textless{}{-}} \FunctionTok{survfit}\NormalTok{(}\FunctionTok{Surv}\NormalTok{(ndata}\SpecialCharTok{$}\NormalTok{progression\_time, ndata}\SpecialCharTok{$}\NormalTok{progression\_status}\SpecialCharTok{==}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ndata}\SpecialCharTok{$}\NormalTok{New\_Tumor\_event, }
+               \AttributeTok{data =}\NormalTok{ ndata)}
+\FunctionTok{print}\NormalTok{(fit2c)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call: survfit(formula = Surv(ndata$progression_time, ndata$progression_status == 
+##     2) ~ ndata$New_Tumor_event, data = ndata)
+## 
+##    115 observations deleted due to missingness 
+##                             n events median 0.95LCL 0.95UCL
+## ndata$New_Tumor_event=No  265     10     NA      NA      NA
+## ndata$New_Tumor_event=Yes  20     16   29.4    14.2      NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(fit2c)}\SpecialCharTok{$}\NormalTok{table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                           records n.max n.start events    *rmean *se(rmean)
+## ndata$New_Tumor_event=No      265   265     265     10 131.54551   2.877115
+## ndata$New_Tumor_event=Yes      20    20      20     16  34.66143   5.994247
+##                             median  0.95LCL 0.95UCL
+## ndata$New_Tumor_event=No        NA       NA      NA
+## ndata$New_Tumor_event=Yes 29.39146 14.23546      NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsurvplot}\NormalTok{(fit2c,}
+          \CommentTok{\#legend.labs=c("tumor\_free", "with\_tumor"),}
+          \AttributeTok{pval =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{conf.int =}\NormalTok{ F,}
+          \AttributeTok{risk.table =} \ConstantTok{TRUE}\NormalTok{, }\CommentTok{\# Add risk table}
+          \AttributeTok{risk.table.col =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change risk table color by groups}
+          \AttributeTok{linetype =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change line type by groups}
+          \AttributeTok{surv.median.line =} \StringTok{"hv"}\NormalTok{, }\CommentTok{\# Specify median survival}
+          \AttributeTok{ggtheme =} \FunctionTok{theme\_bw}\NormalTok{(), }\CommentTok{\# Change ggplot2 theme}
+          \AttributeTok{palette =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#2E9FDF"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{new_surv_3_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#1 {-} censored \& 2{-} progression}
+\CommentTok{\#1 {-} tumor\_free \& 2 with tumor .....neoplasm status }
+\CommentTok{\#1 {-} NO \& 2{-}YES .....TREATMENT CODE}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+\section{KM Curve- survival probability:Uncensored cases of Prior Diagnosis}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"survival"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"survminer"}\NormalTok{)}
+
+\NormalTok{fit2d }\OtherTok{\textless{}{-}} \FunctionTok{survfit}\NormalTok{(}\FunctionTok{Surv}\NormalTok{(ndata}\SpecialCharTok{$}\NormalTok{progression\_time, ndata}\SpecialCharTok{$}\NormalTok{progression\_status}\SpecialCharTok{==}\DecValTok{2}\NormalTok{) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ndata}\SpecialCharTok{$}\NormalTok{Prior.Diagnosis, }
+               \AttributeTok{data =}\NormalTok{ ndata)}
+\FunctionTok{print}\NormalTok{(fit2d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call: survfit(formula = Surv(ndata$progression_time, ndata$progression_status == 
+##     2) ~ ndata$Prior.Diagnosis, data = ndata)
+## 
+##    86 observations deleted due to missingness 
+##                             n events median 0.95LCL 0.95UCL
+## ndata$Prior.Diagnosis=No  296     25     NA      NA      NA
+## ndata$Prior.Diagnosis=Yes  18      1     NA      NA      NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(fit2d)}\SpecialCharTok{$}\NormalTok{table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                           records n.max n.start events   *rmean *se(rmean)
+## ndata$Prior.Diagnosis=No      296   296     296     25 138.0113    6.37083
+## ndata$Prior.Diagnosis=Yes      18    18      18      1 154.8038   10.01548
+##                           median 0.95LCL 0.95UCL
+## ndata$Prior.Diagnosis=No      NA      NA      NA
+## ndata$Prior.Diagnosis=Yes     NA      NA      NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsurvplot}\NormalTok{(fit2d,}
+          \CommentTok{\#legend.labs=c("tumor\_free", "with\_tumor"),}
+          \AttributeTok{pval =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{conf.int =}\NormalTok{ F,}
+          \AttributeTok{risk.table =} \ConstantTok{TRUE}\NormalTok{, }\CommentTok{\# Add risk table}
+          \AttributeTok{risk.table.col =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change risk table color by groups}
+          \AttributeTok{linetype =} \StringTok{"strata"}\NormalTok{, }\CommentTok{\# Change line type by groups}
+          \AttributeTok{surv.median.line =} \StringTok{"hv"}\NormalTok{, }\CommentTok{\# Specify median survival}
+          \AttributeTok{ggtheme =} \FunctionTok{theme\_bw}\NormalTok{(), }\CommentTok{\# Change ggplot2 theme}
+          \AttributeTok{palette =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#2E9FDF"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in .add_surv_median(p, fit, type = surv.median.line, fun = fun, : Median
+## survival not reached.
+\end{verbatim}
+
+\includegraphics{new_surv_3_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#1 {-} censored \& 2{-} progression}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
