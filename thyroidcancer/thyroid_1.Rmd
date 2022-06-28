@@ -1,0 +1,294 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+    fig_caption: true
+    latex_engine: xelatex
+    number_sections: true
+    toc: true
+    toc_depth: 4
+title: "SURVIVAL ANALYSIS - TCGA PRAD CANCER"
+author: 
+- Kelvin Ofori-Minta
+- University of Texas at El Paso (UTEP) 
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+geometry: margin=1in
+fontsize: 11pt
+spacing: single
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{amssymb, bm}
+- \usepackage{amsfonts}
+- \usepackage{amsthm}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhf{}
+- \rhead{Collaborative Research}
+- \lhead{Thyroid Cancer}
+- \cfoot{\thepage}
+- \usepackage{algorithm}
+- \usepackage[noend]{algpseudocode}
+---
+
+\section{Loading and Cleaning Data}
+```{r, warning=FALSE, message=FALSE}
+data <- read.csv("thyroidcancer.csv", header = T, na.strings = "NA")
+
+data[data==""]<-NA #replace all empty cells with na
+
+# write.csv(data,"C://Users//Kelvin//Desktop//Spring 2022//research with Dr. Leung//survival//selected_columns.csv")
+```
+
+\subsection{Inspecting dataframe for missing values}
+```{r, warning=FALSE, message=FALSE}
+require(inspectdf)
+show_plot(inspect_na(data))
+missing = inspect_na(data)
+missing[ , 3] = round(missing[ ,3], 2)
+names(missing) = c("variable", "count", "proportion")
+require(kableExtra)
+kable(missing)
+```
+
+\newpage
+\subsubsection{Inspect distribution of variables}
+```{r, warning=FALSE, message=FALSE}
+explorecolumns_thyroid=c("AGE","SEX","PERSON_NEOPLASM_CANCER_STATUS","ETHNICITY", 
+                           "RACE","RADIATION_THERAPY", "PFS_STATUS") 
+dat=data[,explorecolumns_thyroid]
+
+colnames(dat)[colnames(dat)=="PERSON_NEOPLASM_CANCER_STATUS"]<-"neoplasm_status"
+
+dat$PFS_STATUS<-as.integer(ifelse(dat$PFS_STATUS=="0:CENSORED",0,1)) 
+dat$RADIATION_THERAPY = as.integer(ifelse(dat$RADIATION_THERAPY=="No",0,1))
+dat$SEX = as.integer(ifelse(dat$SEX=="Female",0,1))
+dat$neoplasm_status=as.integer(ifelse(dat$neoplasm_status=="Tumor Free",0,1))
+
+suppressPackageStartupMessages(library(tidyverse))
+dat%>%
+  pivot_longer(cols=c(PFS_STATUS,RADIATION_THERAPY,AGE, SEX,neoplasm_status),
+               names_to ="key", values_to = "value", drop_na(dat)) %>%
+  ggplot(aes(value)) +
+  geom_histogram(bins = 20) +
+  facet_wrap(~key, scales='free_x')
+```
+
+
+\subsubsection{Rename long variables}
+```{r}
+
+# new_data$Radiation.Therapy<-as.integer(ifelse(new_data$Radiation.Therapy=="No",0,1))
+# new_data$Radiation.Therapy=factor(new_data$Radiation.Therapy, levels=c("0","1"),
+#                                   labels = c("No","Yes"))
+
+
+
+"TMB-H means that the tumor has a high number of mutations. Doctors have found that
+certain immunotherapy drugs are more likely to work
+against TMB-H cancers. This is because the immune
+system may be able to find and attack cancer cells with high
+TMB more easily."
+
+
+"Person neoplasm status...... You are correct, IMO:  tumor free does not mean normal, but rather whether (or not) the tumor (neoplasm) continues to be present.  It is a statement about the progression (or not) of the original disease; whereas normal is a statement that there was no disease to begin with."
+```
+
+\newpage
+\subsubsection{Re-coding variables}
+```{r, warning=FALSE}
+data=data[ ,-c(28)] #remove weight,it has empty cells
+
+
+data$RADIATION_THERAPY = factor(data$RADIATION_THERAPY, levels = c("No","Yes"),
+                                labels =c("No", "Yes"))
+
+data$SEX = factor(data$SEX, levels=c("Female","Male"), labels=c("Female","Male"))
+
+data$AJCC_PATHOLOGIC_TUMOR_STAGE=factor(data$AJCC_PATHOLOGIC_TUMOR_STAGE,levels = c("STAGE I","STAGE II","STAGE III","STAGE IV","STAGE IVA","STAGE IVC"),labels=c("STAGE I","STAGE II","STAGE III","STAGE IV","STAGE IVA","STAGE IVC"))
+
+data$AJCC_STAGING_EDITION = factor(data$AJCC_STAGING_EDITION,
+                                   levels = c("4TH","5TH","6TH","7TH"),
+                                   labels = c("4TH","5TH","6TH","7TH"))
+data$ETHNICITY=factor(data$ETHNICITY, 
+                      levels=c("Hispanic Or Latino", "Not Hispanic Or Latino"),
+                      labels =c("Hispanic Or Latino", "Not Hispanic Or Latino"))
+
+data$PFS_STATUS<-as.integer(ifelse(data$PFS_STATUS=="0:CENSORED",0,1)) 
+```
+
+\newpage
+\subsubsection{Renaming variables}
+```{r, warning=FALSE}
+str(data)
+```
+
+
+\newpage
+\section{KM Curve - Survival probability with Radiation Therapy of 100 sampled subjects}
+```{r, warning=FALSE, message=FALSE}
+library("survival")
+library("survminer")
+ndata<-data
+fit1<-survfit(Surv(ndata$PFS_MONTHS, ndata$PFS_STATUS==1)~ndata$RADIATION_THERAPY
+              ,data=ndata)
+print(fit1)
+summary(fit1)$table
+```
+
+```{r}
+ggsurvplot(fit1,
+          #legend.labs=c("tumor_free", "with_tumor"),
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+#1 - censored & 2- progression
+#1 - tumor_free & 2 with tumor .....neoplasm status 
+#1 - NO & 2-YES .....TREATMENT CODE
+```
+\newpage
+\section{Person Neoplasm Status - Tumor}
+```{r}
+tumor=ndata[ndata$PERSON_NEOPLASM_CANCER_STATUS=="With Tumor",]
+
+fit2<-survfit(Surv(tumor$PFS_MONTHS, tumor$PFS_STATUS==1)~tumor$RADIATION_THERAPY
+              ,data=tumor)
+
+print(fit2)
+summary(fit2)$table
+```
+
+
+
+```{r}
+ggsurvplot(fit2,
+          pval = TRUE, conf.int = F,
+          risk.table = TRUE, # Add risk table
+          risk.table.col = "strata", # Change risk table color by groups
+          linetype = "strata", # Change line type by groups
+          surv.median.line = "hv", # Specify median survival
+          ggtheme = theme_bw(), # Change ggplot2 theme
+          palette = c("#E7B800", "#2E9FDF"))
+
+
+table(data$PERSON_NEOPLASM_CANCER_STATUS)
+table(tumor$PFS_STATUS)
+table(tumor$RADIATION_THERAPY)
+```
+
+
+\newpage
+\section{Logrank Test}
+```{r}
+logrank <- survdiff(Surv(tumor$PFS_MONTHS, tumor$PFS_STATUS==1)~tumor$RADIATION_THERAPY
+              ,data=tumor)
+logrank
+```
+
+
+\newpage
+\section{Cox Proportional Hazard Model with Neoplasm Tumor Data}
+```{r, warning=FALSE, message=FALSE}
+fitph<-coxph(Surv(PFS_MONTHS,PFS_STATUS==1) ~ RADIATION_THERAPY +
+                AGE + SEX + RACE + AJCC_PATHOLOGIC_TUMOR_STAGE + DAYS_TO_BIRTH
+                + DAYS_LAST_FOLLOWUP + AJCC_PATHOLOGIC_TUMOR_STAGE +
+               AJCC_STAGING_EDITION, 
+             data=tumor)
+summary(fitph)
+```
+
+
+
+```{r}
+covariates <- c("AGE","SEX","RACE", "AJCC_PATHOLOGIC_TUMOR_STAGE", "DAYS_TO_BIRTH",
+                "DAYS_LAST_FOLLOWUP", "AJCC_PATHOLOGIC_TUMOR_STAGE", "AJCC_STAGING_EDITION")
+
+univ_formulas <- sapply(covariates,  
+                        function(x) as.formula(paste('Surv(PFS_MONTHS,PFS_STATUS==1)~', x)))
+                        
+univ_models <- lapply( univ_formulas, function(x){coxph(x, data = tumor)})
+
+# Extract data 
+univ_results <- lapply(univ_models,
+                       function(x){ 
+                          x <- summary(x)
+                          p.value<-signif(x$wald["pvalue"], digits=2)
+                          wald.test<-signif(x$wald["test"], digits=2)
+                          beta<-signif(x$coef[1], digits=2);#coeficient beta
+                          HR <-signif(x$coef[2], digits=2);#exp(beta)
+                          HR.confint.lower <- signif(x$conf.int[,"lower .95"], 2)
+                          HR.confint.upper <- signif(x$conf.int[,"upper .95"],2)
+                          HR <- paste0(HR, " (", 
+                                       HR.confint.lower, "-", HR.confint.upper, ")")
+                          res<-c(beta, HR, wald.test, p.value)
+                          names(res)<-c("beta", "HR (95% CI for HR)", "wald.test", 
+                                        "p.value")
+                          return(res)
+                          #return(exp(cbind(coef(x),confint(x))))
+                         })
+# 
+# res <- t(as.data.frame(univ_results, check.names = FALSE))
+# as.data.frame(res)
+#            beta HR (95% CI for HR) wald.test p.value
+# age       0.019            1 (1-1)       4.1   0.042
+# sex       -0.53   0.59 (0.42-0.82)        10  0.0015
+# ph.karno -0.016      0.98 (0.97-1)       7.9   0.005
+# ph.ecog    0.48        1.6 (1.3-2)        18 2.7e-05
+# wt.loss  0.0013         1 (0.99-1)      0.05    0.83
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+#create a matrix for survival output
+
+#genes in rows , HR and P in columns
+
+survival_gse4573_matrix <- matrix(nrow=length(fitph$coefficients), ncol=2)
+
+colnames(survival_gse4573_matrix)<-c("HR","P")
+
+rownames(survival_gse4573_matrix)<-names(fitph$coefficients)
+```
+
+```{r}
+# survival_cens<-datTraits$STATUS.0.alive..1.dead.[358:487]
+# 
+#     survival_time <- as.numeric(datTraits$suvival..months)[358:487]
+
+for(i in 1:dim(survival_gse4573_matrix)[1]){
+
+a <- coxph(Surv(PFS_MONTHS, PFS_STATUS == 1) ~ survival_gse4573_matrix[i,], 
+               data = tumor)
+coeffs <- coef(summary(a))}
+# HR <- coeffs[,2]
+# pVal <- (coeffs[,5])
+
+```
+
+
+
+
+
+
