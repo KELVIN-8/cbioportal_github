@@ -74,6 +74,7 @@ TMB more easily."
 \newpage
 \subsubsection{Re-coding variables}
 ```
+
 ```{r, warning=FALSE, message=FALSE}
 
 # newdata$Neodjuvant_Therapy_type <- factor(newdata$Neodjuvant_Therapy_type,
@@ -113,6 +114,21 @@ str(data)
 \newpage
 \section{Generate Random subsets from entire data}
 ```
+
+```{r}
+ndata
+  
+  
+  
+```
+
+
+
+
+
+
+
+
 ```{r, warning=FALSE, message=FALSE}
 ndata<-data
 set.seed(1)
