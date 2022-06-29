@@ -132,7 +132,7 @@
 
 \title{SURVIVAL ANALYSIS - TCGA PRAD CANCER}
 \author{Kelvin Ofori-Minta \and University of Texas at El Paso (UTEP)}
-\date{June 27, 2022}
+\date{June 29, 2022}
 
 \begin{document}
 \maketitle
@@ -141,6 +141,7 @@
 \setcounter{tocdepth}{4}
 \tableofcontents
 }
+\newpage
 \section{Loading and Cleaning Data}
 
 \begin{Shaded}
@@ -363,11 +364,6 @@ PFS\_MONTHS & 0 & 0.00\\
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Warning in .add_surv_median(p, fit, type = surv.median.line, fun = fun, : Median
-## survival not reached.
-\end{verbatim}
-
 \includegraphics{thyroid_1_files/figure-latex/unnamed-chunk-6-1.pdf}
 
 \newpage
@@ -408,6 +404,8 @@ PFS\_MONTHS & 0 & 0.00\\
 ## tumor$RADIATION_THERAPY=No  15.87928 14.16971      NA
 ## tumor$RADIATION_THERAPY=Yes 45.53375 29.68735      NA
 \end{verbatim}
+
+\newpage
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -495,82 +493,129 @@ PFS\_MONTHS & 0 & 0.00\\
                 \SpecialCharTok{+}\NormalTok{ DAYS\_LAST\_FOLLOWUP }\SpecialCharTok{+}\NormalTok{ AJCC\_PATHOLOGIC\_TUMOR\_STAGE }\SpecialCharTok{+}
 \NormalTok{               AJCC\_STAGING\_EDITION, }
              \AttributeTok{data=}\NormalTok{tumor)}
-\FunctionTok{summary}\NormalTok{(fitph)}
+\CommentTok{\#summary(fitph)}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+\section{Formating Cox Regression Results}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{broom}\SpecialCharTok{::}\FunctionTok{tidy}\NormalTok{(fitph , }
+            \AttributeTok{exp=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r|r}
+\hline
+term & estimate & std.error & statistic & p.value\\
+\hline
+RADIATION\_THERAPYYes & 1.489350e-01 & 0.6160075 & -3.0912701 & 0.0019930\\
+\hline
+AGE & 1.079070e-01 & 0.0162990 & -136.6023018 & 0.0000000\\
+\hline
+SEXMale & 6.634732e+00 & 0.6387226 & 2.9626605 & 0.0030499\\
+\hline
+RACEAsian & 0.000000e+00 & 4512.3164391 & -0.0081625 & 0.9934873\\
+\hline
+RACEBlack or African American & 0.000000e+00 & 0.7510061 & -24.6836042 & 0.0000000\\
+\hline
+RACEWhite & 0.000000e+00 & 0.6828295 & -28.6648894 & 0.0000000\\
+\hline
+AJCC\_PATHOLOGIC\_TUMOR\_STAGESTAGE II & 4.021354e+07 & 1.0561633 & 16.5786051 & 0.0000000\\
+\hline
+AJCC\_PATHOLOGIC\_TUMOR\_STAGESTAGE III & 2.375540e+07 & 0.5364540 & 31.6584817 & 0.0000000\\
+\hline
+AJCC\_PATHOLOGIC\_TUMOR\_STAGESTAGE IV & 1.000000e+00 & 0.0000000 & NaN & NaN\\
+\hline
+AJCC\_PATHOLOGIC\_TUMOR\_STAGESTAGE IVA & 4.537365e+06 & 1.0438310 & 14.6842319 & 0.0000000\\
+\hline
+AJCC\_PATHOLOGIC\_TUMOR\_STAGESTAGE IVC & 1.211187e+08 & 1.2335399 & 15.0885125 & 0.0000000\\
+\hline
+DAYS\_TO\_BIRTH & 9.937521e-01 & 0.0000447 & -140.2243367 & 0.0000000\\
+\hline
+DAYS\_LAST\_FOLLOWUP & 9.994395e-01 & 0.0002623 & -2.1372922 & 0.0325742\\
+\hline
+AJCC\_STAGING\_EDITION5TH & 3.184256e-01 & 0.8234036 & -1.3898001 & 0.1645896\\
+\hline
+AJCC\_STAGING\_EDITION6TH & 2.081824e+08 & 0.6830696 & 28.0409577 & 0.0000000\\
+\hline
+AJCC\_STAGING\_EDITION7TH & 1.000000e+00 & 0.6109654 & 0.0000000 & 1.0000000\\
+\hline
+\end{tabular}
+\newpage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fitph }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  gtsummary}\SpecialCharTok{::}\FunctionTok{tbl\_regression}\NormalTok{(}\AttributeTok{exp=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Call:
-## coxph(formula = Surv(PFS_MONTHS, PFS_STATUS == 1) ~ RADIATION_THERAPY + 
-##     AGE + SEX + RACE + AJCC_PATHOLOGIC_TUMOR_STAGE + DAYS_TO_BIRTH + 
-##     DAYS_LAST_FOLLOWUP + AJCC_PATHOLOGIC_TUMOR_STAGE + AJCC_STAGING_EDITION, 
-##     data = tumor)
-## 
-##   n= 33, number of events= 15 
-##    (56 observations deleted due to missingness)
-## 
-##                                            coef  exp(coef)   se(coef)        z
-## RADIATION_THERAPYYes                 -1.904e+00  1.489e-01  6.160e-01   -3.091
-## AGE                                  -2.226e+00  1.079e-01  1.630e-02 -136.602
-## SEXMale                               1.892e+00  6.635e+00  6.387e-01    2.963
-## RACEAsian                            -3.683e+01  1.010e-16  4.512e+03   -0.008
-## RACEBlack or African American        -1.854e+01  8.897e-09  7.510e-01  -24.684
-## RACEWhite                            -1.957e+01  3.158e-09  6.828e-01  -28.665
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE II   1.751e+01  4.021e+07  1.056e+00   16.579
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE III  1.698e+01  2.376e+07  5.365e-01   31.658
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IV   0.000e+00  1.000e+00  0.000e+00       NA
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IVA  1.533e+01  4.537e+06  1.044e+00   14.684
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IVC  1.861e+01  1.211e+08  1.234e+00   15.089
-## DAYS_TO_BIRTH                        -6.267e-03  9.938e-01  4.470e-05 -140.224
-## DAYS_LAST_FOLLOWUP                   -5.606e-04  9.994e-01  2.623e-04   -2.137
-## AJCC_STAGING_EDITION5TH              -1.144e+00  3.184e-01  8.234e-01   -1.390
-## AJCC_STAGING_EDITION6TH               1.915e+01  2.082e+08  6.831e-01   28.041
-## AJCC_STAGING_EDITION7TH               0.000e+00  1.000e+00  6.110e-01    0.000
-##                                      Pr(>|z|)    
-## RADIATION_THERAPYYes                  0.00199 ** 
-## AGE                                   < 2e-16 ***
-## SEXMale                               0.00305 ** 
-## RACEAsian                             0.99349    
-## RACEBlack or African American         < 2e-16 ***
-## RACEWhite                             < 2e-16 ***
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE II   < 2e-16 ***
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE III  < 2e-16 ***
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IV        NA    
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IVA  < 2e-16 ***
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IVC  < 2e-16 ***
-## DAYS_TO_BIRTH                         < 2e-16 ***
-## DAYS_LAST_FOLLOWUP                    0.03257 *  
-## AJCC_STAGING_EDITION5TH               0.16459    
-## AJCC_STAGING_EDITION6TH               < 2e-16 ***
-## AJCC_STAGING_EDITION7TH               1.00000    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-##                                      exp(coef) exp(-coef) lower .95 upper .95
-## RADIATION_THERAPYYes                 1.489e-01  6.714e+00 4.453e-02 4.981e-01
-## AGE                                  1.079e-01  9.267e+00 1.045e-01 1.114e-01
-## SEXMale                              6.635e+00  1.507e-01 1.897e+00 2.320e+01
-## RACEAsian                            1.010e-16  9.906e+15 0.000e+00       Inf
-## RACEBlack or African American        8.897e-09  1.124e+08 2.042e-09 3.877e-08
-## RACEWhite                            3.158e-09  3.166e+08 8.284e-10 1.204e-08
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE II  4.021e+07  2.487e-08 5.074e+06 3.187e+08
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE III 2.376e+07  4.210e-08 8.301e+06 6.798e+07
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IV  1.000e+00  1.000e+00 1.000e+00 1.000e+00
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IVA 4.537e+06  2.204e-07 5.865e+05 3.510e+07
-## AJCC_PATHOLOGIC_TUMOR_STAGESTAGE IVC 1.211e+08  8.256e-09 1.079e+07 1.359e+09
-## DAYS_TO_BIRTH                        9.938e-01  1.006e+00 9.937e-01 9.938e-01
-## DAYS_LAST_FOLLOWUP                   9.994e-01  1.001e+00 9.989e-01 1.000e+00
-## AJCC_STAGING_EDITION5TH              3.184e-01  3.140e+00 6.341e-02 1.599e+00
-## AJCC_STAGING_EDITION6TH              2.082e+08  4.803e-09 5.458e+07 7.941e+08
-## AJCC_STAGING_EDITION7TH              1.000e+00  1.000e+00 3.020e-01 3.312e+00
-## 
-## Concordance= 0.869  (se = 0.049 )
-## Likelihood ratio test= 30.75  on 16 df,   p=0.01
-## Wald test            = 22618  on 16 df,   p=<2e-16
-## Score (logrank) test = 32.25  on 16 df,   p=0.009
+## Table printed with `knitr::kable()`, not {gt}. Learn why at
+## https://www.danieldsjoberg.com/gtsummary/articles/rmarkdown.html
+## To suppress this message, include `message = FALSE` in code chunk header.
 \end{verbatim}
 
-\newpage
-\section{}
+\begin{tabular}{l|c|c|c}
+\hline
+**Characteristic** & **HR** & **95\% CI** & **p-value**\\
+\hline
+RADIATION\_THERAPY &  &  & \\
+\hline
+No &  &  & \\
+\hline
+Yes & 0.15 & 0.04, 0.50 & 0.002\\
+\hline
+AGE & 0.11 & 0.10, 0.11 & <0.001\\
+\hline
+SEX &  &  & \\
+\hline
+Female &  &  & \\
+\hline
+Male & 6.63 & 1.90, 23.2 & 0.003\\
+\hline
+RACE &  &  & \\
+\hline
+American Indian or Alaska Native &  &  & \\
+\hline
+Asian & 0.00 & 0.00, Inf & >0.9\\
+\hline
+Black or African American & 0.00 & 0.00, 0.00 & <0.001\\
+\hline
+White & 0.00 & 0.00, 0.00 & <0.001\\
+\hline
+AJCC\_PATHOLOGIC\_TUMOR\_STAGE &  &  & \\
+\hline
+STAGE I &  &  & \\
+\hline
+STAGE II & 40,213,538 & 5,074,163, 318,698,566 & <0.001\\
+\hline
+STAGE III & 23,755,403 & 8,301,028, 67,981,841 & <0.001\\
+\hline
+STAGE IV & 1.00 & 1.00, 1.00 & \\
+\hline
+STAGE IVA & 4,537,365 & 586,534, 35,100,584 & <0.001\\
+\hline
+STAGE IVC & 121,118,746 & 10,794,942, 1,358,946,680 & <0.001\\
+\hline
+DAYS\_TO\_BIRTH & 0.99 & 0.99, 0.99 & <0.001\\
+\hline
+DAYS\_LAST\_FOLLOWUP & 1.00 & 1.00, 1.00 & 0.033\\
+\hline
+AJCC\_STAGING\_EDITION &  &  & \\
+\hline
+4TH &  &  & \\
+\hline
+5TH & 0.32 & 0.06, 1.60 & 0.2\\
+\hline
+6TH & 208,182,433 & 54,577,570, 794,097,750 & <0.001\\
+\hline
+7TH & 1.00 & 0.30, 3.31 & >0.9\\
+\hline
+\end{tabular}
 
 \end{document}
