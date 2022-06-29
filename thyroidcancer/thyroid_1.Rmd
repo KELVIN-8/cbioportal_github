@@ -29,7 +29,7 @@ header-includes:
 - \usepackage{algorithm}
 - \usepackage[noend]{algpseudocode}
 ---
-
+\newpage
 \section{Loading and Cleaning Data}
 ```{r, warning=FALSE, message=FALSE}
 data <- read.csv("thyroidcancer.csv", header = T, na.strings = "NA")
@@ -49,6 +49,7 @@ names(missing) = c("variable", "count", "proportion")
 require(kableExtra)
 kable(missing)
 ```
+
 
 \newpage
 \subsubsection{Inspect distribution of variables}
@@ -134,7 +135,7 @@ fit2<-survfit(Surv(tumor$PFS_MONTHS, tumor$PFS_STATUS==1)~tumor$RADIATION_THERAP
 print(fit2)
 summary(fit2)$table
 ```
-
+\newpage
 ```{r, warning=FALSE, message=FALSE}
 ggsurvplot(fit2,
           pval = TRUE, conf.int = F,
@@ -180,7 +181,7 @@ broom::tidy(fitph ,
             exp=TRUE) %>%
   kable()
 ```
-
+\newpage
 ```{r}
 fitph %>%
   gtsummary::tbl_regression(exp=TRUE)
